@@ -1,0 +1,19 @@
+title: Hauswerk Plugin Store
+baseurl: "/Hauswerk_Plugins"
+url: "https://michligtenberg2.github.io"
+theme: minima
+markdown: kramdown
+permalink: pretty
+
+plugins:
+  - jekyll-relative-links
+
+relative_links:
+  enabled: true
+  collections: true
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
