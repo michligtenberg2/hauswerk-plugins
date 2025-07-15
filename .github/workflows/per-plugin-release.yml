@@ -1,4 +1,4 @@
-name: Per Plugin Release (met artifact fix)
+name: Per Plugin Release (met previews)
 
 on:
   push:
@@ -9,11 +9,22 @@ on:
 jobs:
   prepare:
     runs-on: ubuntu-latest
+    container: python:3.11-slim
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      - name: 🧾 Repo klonen
+      - name: 📥 Repo klonen
         uses: actions/checkout@v3
+
+      - name: 🧰 Vereisten installeren
+        run: |
+          apt-get update && apt-get install -y zip xvfb libxcb-cursor0 python3-pyqt6
+          pip install PyQt6
+
+      - name: 🖼️ Previews genereren
+        run: |
+          mkdir -p dist
+          python generate_previews.py
 
       - name: 📦 Genereer zips en matrix
         id: set-matrix
@@ -52,7 +63,7 @@ jobs:
       matrix:
         plugin: ${{ fromJson(needs.prepare.outputs.matrix) }}
     steps:
-      - name: 🧾 Repo klonen
+      - name: 📥 Repo klonen
         uses: actions/checkout@v3
 
       - name: 📥 Download artifacts
