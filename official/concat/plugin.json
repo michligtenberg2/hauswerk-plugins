@@ -1,0 +1,8 @@
+{
+  "name": "Concat",
+  "entry": "concat.py",
+  "class": "ConcatWidget",
+  "icon": "concat.svg",
+  "tags": [],
+  "verified": true
+}
