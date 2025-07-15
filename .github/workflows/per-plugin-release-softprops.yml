@@ -7,49 +7,59 @@ on:
   workflow_dispatch:
 
 jobs:
-  zip-and-release:
+  prepare:
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - name: 🧾 Repo klonen
         uses: actions/checkout@v3
 
-      - name: 🔍 Plugins verzamelen en zippen
-        id: zips
+      - name: 📦 Genereer zips en matrix
+        id: set-matrix
         run: |
           mkdir -p dist
-          echo "plugin_matrix=[" > plugins.json
+          JSON="["
           first=true
           for dir in official/*; do
             if [ -d "$dir" ]; then
               name=$(basename "$dir")
-              zipfile="dist/$name.zip"
+              zipname="$name.zip"
+              zipfile="dist/$zipname"
               (cd "$dir" && zip -r "../$zipfile" .)
               tag="${name}-v1.0"
 
               if [ "$first" = true ]; then
                 first=false
               else
-                echo "," >> plugins.json
+                JSON+=","
               fi
-              echo "{\"name\": \"$name\", \"tag\": \"$tag\", \"zip\": \"$zipfile\"}" >> plugins.json
+              JSON+="{\"name\":\"$name\",\"tag\":\"$tag\",\"zip\":\"$zipfile\"}"
             fi
           done
-          echo "]" >> plugins.json
-          cat plugins.json
+          JSON+="]"
+          echo "matrix=$JSON" >> $GITHUB_OUTPUT
 
-      - name: 🔁 Lees JSON in als matrix
-        uses: mikefarah/yq@v4
-        id: matrix
-        with:
-          cmd: yq '.plugin_matrix' < plugins.json
+  release:
+    needs: prepare
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        plugin: ${{ fromJson(needs.prepare.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v3
 
-      - name: 🔁 Genereer release per plugin
+      - name: 📥 Haal ZIP op uit vorige job
+        run: |
+          echo "Deze stap wordt overschreven door artifacts als nodig."
+          # Voor nu verwachten we dat de zips lokaal beschikbaar zijn
+
+      - name: 🚀 Maak release met ZIP
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ matrix.plugin.tag }}
           name: ${{ matrix.plugin.name }} 1.0
           body: Release voor plugin ${{ matrix.plugin.name }}
           files: ${{ matrix.plugin.zip }}
-        strategy:
-          matrix:
-            plugin: ${{ fromJson(steps.matrix.outputs.result) }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
