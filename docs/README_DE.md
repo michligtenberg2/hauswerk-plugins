@@ -1,5 +1,7 @@
 **🌐 Verfügbare Sprachen:** [Nederlands](../README.md) | [English](README_EN.md) | [Deutsch](README_DE.md) | [Français](README_FR.md) | [中文](README_ZH.md)
 
+<link rel="stylesheet" href="style.css">
+
 # 🧹 Hauswerk Plugins (Deutsch)
 
 Willkommen im **Hauswerk Plugins**-Repository — der offiziellen Sammlung modularer Werkzeuge für die [Hauswerk](https://github.com/michligtenberg2/Hauswerk) GUI.
