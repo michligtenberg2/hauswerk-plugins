@@ -1,0 +1,66 @@
+name: Per Plugin Release
+
+on:
+  push:
+    paths:
+      - 'official/**'
+  workflow_dispatch:
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: 🧾 Repo klonen
+        uses: actions/checkout@v3
+
+      - name: 📦 Genereer zips en matrix
+        id: set-matrix
+        run: |
+          mkdir -p dist
+          JSON="["
+          first=true
+          for dir in official/*; do
+            if [ -d "$dir" ]; then
+              name=$(basename "$dir")
+              zipname="$name.zip"
+              zipfile="dist/$zipname"
+              (cd "$dir" && zip -r "../$zipfile" .)
+              tag="${name}-v1.0"
+
+              if [ "$first" = true ]; then
+                first=false
+              else
+                JSON+=","
+              fi
+              JSON+="{\"name\":\"$name\",\"tag\":\"$tag\",\"zip\":\"$zipfile\"}"
+            fi
+          done
+          JSON+="]"
+          echo "matrix=$JSON" >> $GITHUB_OUTPUT
+
+  release:
+    needs: prepare
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        plugin: ${{ fromJson(needs.prepare.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: 🔁 Genereer opnieuw zip voor release
+        run: |
+          name="${{ matrix.plugin.name }}"
+          mkdir -p dist
+          (cd "official/$name" && zip -r "../../dist/$name.zip" .)
+
+      - name: 🚀 Maak release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ matrix.plugin.tag }}
+          name: ${{ matrix.plugin.name }} 1.0
+          body: Release voor plugin ${{ matrix.plugin.name }}
+          files: dist/${{ matrix.plugin.name }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
