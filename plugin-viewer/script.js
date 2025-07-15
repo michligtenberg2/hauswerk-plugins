@@ -13,10 +13,10 @@ const detailDownload = document.getElementById('detail-download');
 const detailRating = document.getElementById('detail-rating');
 const detailChangelog = document.getElementById('detail-changelog');
 
-const SUPABASE_API_KEY = '<JOUW_API_KEY>';
+const SUPABASE_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml6bGNucGVsb211dXd4aWpubnVoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI1ODQ0NjEsImV4cCI6MjA2ODE2MDQ2MX0.ogKWbIDvRlq5BDyyVX9WNWdHYPYuSFm1dugP8_0u7fE';
 const SUPABASE_URL = 'https://izlcnpelomuuwxijnnuh.supabase.co';
 
-fetch(`${SUPABASE_URL}/storage/v1/object/public/hauswerk.official/official_plugins.json`)
+fetch(`${SUPABASE_URL}/storage/v1/object/public/hauswerk.unofficial/unofficial_plugins.json`)
   .then(r => r.json())
   .then(data => {
     plugins = data;
