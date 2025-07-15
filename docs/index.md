@@ -31,10 +31,5 @@ Hier kun je:
 ## 🔧 Meer informatie
 - 💾 Bekijk plugins in [`/official/`](https://github.com/michligtenberg2/hauswerk-plugins/tree/main/official)
 - 🧪 Bekijk experimentele plugins in [`/unofficial/`](https://github.com/michligtenberg2/hauswerk-plugins/tree/main/unofficial)
+- 🖼️ Bekijk de [Plugin Galerij](plugingallery.md) voor previews
 - 🛠️ Wil je bijdragen? Bekijk de instructies in de README
-
----
-
-<footer>
-📦 Powered by <a href="https://github.com/michligtenberg2/Hauswerk">Hauswerk</a>
-</footer>
