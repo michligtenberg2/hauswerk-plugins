@@ -7,6 +7,7 @@ layout: default
 
 # 🧰 Hauswerk Plugin Store
 
+---
 Welkom bij de officiële plugin-index voor de **Hauswerk** applicatie.  
 ---
 
