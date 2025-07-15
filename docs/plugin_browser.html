@@ -3,6 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <title>Hauswerk Plugin Browser</title>
+<script>
+  const LANG = new URLSearchParams(window.location.search).get("lang") || "nl";
+  const TEXTS = {
+    nl: {
+      search: "Zoek plugins...",
+      status_verified: "✅ Geverifieerd",
+      status_unverified: "⚠️ Ongecontroleerd",
+      copy_success: "✅ JSON gekopieerd!",
+      description: "Omschrijving:",
+      download: "📥 Download",
+      copy_json: "📋 Kopieer JSON",
+      view_json: "🔍 Bekijk plugin.json"
+    },
+    en: {
+      search: "Search plugins...",
+      status_verified: "✅ Verified",
+      status_unverified: "⚠️ Unverified",
+      copy_success: "✅ JSON copied!",
+      description: "Description:",
+      download: "📥 Download",
+      copy_json: "📋 Copy JSON",
+      view_json: "🔍 View plugin.json"
+    },
+    de: {
+      search: "Plugins durchsuchen...",
+      status_verified: "✅ Verifiziert",
+      status_unverified: "⚠️ Ungeprüft",
+      copy_success: "✅ JSON kopiert!",
+      description: "Beschreibung:",
+      download: "📥 Herunterladen",
+      copy_json: "📋 JSON kopieren",
+      view_json: "🔍 Plugin.json anzeigen"
+    },
+    fr: {
+      search: "Rechercher des plugins...",
+      status_verified: "✅ Vérifié",
+      status_unverified: "⚠️ Non vérifié",
+      copy_success: "✅ JSON copié !",
+      description: "Description :",
+      download: "📥 Télécharger",
+      copy_json: "📋 Copier le JSON",
+      view_json: "🔍 Voir le plugin.json"
+    },
+    zh: {
+      search: "搜索插件...",
+      status_verified: "✅ 已验证",
+      status_unverified: "⚠️ 未验证",
+      copy_success: "✅ JSON 已复制！",
+      description: "描述：",
+      download: "📥 下载",
+      copy_json: "📋 复制 JSON",
+      view_json: "🔍 查看 plugin.json"
+    }
+  };
+</script>
+
+<script>
+  const LANG = new URLSearchParams(window.location.search).get("lang") || "nl";
+  const TEXTS = {
+    nl: {
+      search: "Zoek plugins...",
+      status_verified: "✅ Geverifieerd",
+      status_unverified: "⚠️ Ongecontroleerd",
+      copy_success: "✅ JSON gekopieerd!",
+      description: "Omschrijving:",
+      download: "📥 Download",
+      copy_json: "📋 Kopieer JSON",
+      view_json: "🔍 Bekijk plugin.json"
+    },
+    en: {
+      search: "Search plugins...",
+      status_verified: "✅ Verified",
+      status_unverified: "⚠️ Unverified",
+      copy_success: "✅ JSON copied!",
+      description: "Description:",
+      download: "📥 Download",
+      copy_json: "📋 Copy JSON",
+      view_json: "🔍 View plugin.json"
+    }
+  };
+</script>
   <link rel="stylesheet" href="style.css">
   <script src="plugin_data.js"></script>
   <style>
@@ -19,10 +100,62 @@
 <body>
   <h1>🧰 Hauswerk Plugin Browser <span id="pluginCount"></span></h1>
   <div class="search">
-    🔍 <input type="text" id="searchInput" placeholder="Zoek plugins...">
+    🔍 <input type="text" id="searchInput" placeholder="" id="searchInput">
   </div>
   <div class="filters" id="tagFilters"></div>
   <div id="pluginContainer"></div>
+<script>
+  function t(key) {
+    return (TEXTS[LANG] && TEXTS[LANG][key]) || key;
+  }
+
+  document.getElementById("searchInput").placeholder = t("search");
+
+  function renderPlugins(filter = "") {
+    const container = document.getElementById("pluginContainer");
+    container.innerHTML = "";
+    const q = filter.toLowerCase();
+    const activeTags = getActiveTags();
+    let count = 0;
+
+    window.plugins.forEach(p => {
+      const matchQuery =
+        p.name.toLowerCase().includes(q) ||
+        p.tags.join(" ").toLowerCase().includes(q) ||
+        (p.description || "").toLowerCase().includes(q);
+      const matchTags = activeTags.length === 0 || activeTags.every(t => p.tags.includes(t));
+      if (matchQuery && matchTags) {
+        count++;
+        const card = document.createElement("div");
+        card.className = "plugin-card";
+        const tags = p.tags.map(t => `<span class='tag'>${t}</span>`).join(" ");
+        const verified = p.verified ? t("status_verified") : t("status_unverified");
+        const jsonStr = JSON.stringify(p, null, 2);
+        card.innerHTML = `
+          <h2>${p.name} ${tags}</h2>
+          <img src="${p.path}/${p.preview}" alt="preview" style="width: 100%; max-width: 400px;">
+          <p><strong>Status:</strong> ${verified}</p>
+          <p><strong>${t("description")}</strong> ${p.description || ""}</p>
+          <p>
+            <a class="button" href="${p.path}/${p.zip}" download>${t("download")}</a>
+            <button onclick='copyJSON(\`${jsonStr}\`)'>${t("copy_json")}</button>
+          </p>
+          <details>
+            <summary>${t("view_json")}</summary>
+            <pre><code>${jsonStr}</code></pre>
+          </details>`;
+        container.appendChild(card);
+      }
+    });
+    document.getElementById("pluginCount").innerText = `(${count})`;
+  }
+
+  function copyJSON(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      alert(t("copy_success"));
+    });
+  }
+</script>
 
   <script>
     function uniqueTags(plugins) {
