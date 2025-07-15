@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="608"
+   height="480"
+   class="svgbob"
+   version="1.1"
+   id="svg785"
+   sodipodi:docname="uitleg.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview787"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.97227182"
+     inkscape:cx="351.75348"
+     inkscape:cy="237.07362"
+     inkscape:window-width="1600"
+     inkscape:window-height="848"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg785" />
+  <style
+     id="style520">.svgbob line, .svgbob path, .svgbob circle, .svgbob rect, .svgbob polygon {
+    stroke: black;
+    stroke-width: 2;
+    stroke-opacity: 1;
+    fill-opacity: 1;
+    stroke-linecap: round;
+    stroke-linejoin: miter;
+}
+.svgbob text {
+    white-space: pre;
+    fill: black;
+    font-family: Iosevka Fixed, monospace;
+    font-size: 14px;
+}
+.svgbob rect.backdrop {
+    stroke: none;
+    fill: white;
+}
+.svgbob .broken {
+    stroke-dasharray: 8;
+}
+.svgbob .filled {
+    fill: black;
+}
+.svgbob .bg_filled {
+    fill: white;
+    stroke-width: 1;
+}
+.svgbob .nofill {
+    fill: white;
+}
+.svgbob .end_marked_arrow {
+    marker-end: url(#arrow);
+}
+.svgbob .start_marked_arrow {
+    marker-start: url(#arrow);
+}
+.svgbob .end_marked_diamond {
+    marker-end: url(#diamond);
+}
+.svgbob .start_marked_diamond {
+    marker-start: url(#diamond);
+}
+.svgbob .end_marked_circle {
+    marker-end: url(#circle);
+}
+.svgbob .start_marked_circle {
+    marker-start: url(#circle);
+}
+.svgbob .end_marked_open_circle {
+    marker-end: url(#open_circle);
+}
+.svgbob .start_marked_open_circle {
+    marker-start: url(#open_circle);
+}
+.svgbob .end_marked_big_open_circle {
+    marker-end: url(#big_open_circle);
+}
+.svgbob .start_marked_big_open_circle {
+    marker-start: url(#big_open_circle);
+}<!--separator-->
+</style>
+  <defs
+     id="defs537">
+    <marker
+       id="arrow"
+       viewBox="-2 -2 8 8"
+       refX="4"
+       refY="2"
+       markerWidth="7"
+       markerHeight="7"
+       orient="auto-start-reverse">
+      <polygon
+         points="0,0 0,4 4,2 0,0"
+         id="polygon522" />
+    </marker>
+    <marker
+       id="diamond"
+       viewBox="-2 -2 8 8"
+       refX="4"
+       refY="2"
+       markerWidth="7"
+       markerHeight="7"
+       orient="auto-start-reverse">
+      <polygon
+         points="0,2 2,0 4,2 2,4 0,2"
+         id="polygon525" />
+    </marker>
+    <marker
+       id="circle"
+       viewBox="0 0 8 8"
+       refX="4"
+       refY="4"
+       markerWidth="7"
+       markerHeight="7"
+       orient="auto-start-reverse">
+      <circle
+         cx="4"
+         cy="4"
+         r="2"
+         class="filled"
+         id="circle528" />
+    </marker>
+    <marker
+       id="open_circle"
+       viewBox="0 0 8 8"
+       refX="4"
+       refY="4"
+       markerWidth="7"
+       markerHeight="7"
+       orient="auto-start-reverse">
+      <circle
+         cx="4"
+         cy="4"
+         r="2"
+         class="bg_filled"
+         id="circle531" />
+    </marker>
+    <marker
+       id="big_open_circle"
+       viewBox="0 0 8 8"
+       refX="4"
+       refY="4"
+       markerWidth="7"
+       markerHeight="7"
+       orient="auto-start-reverse">
+      <circle
+         cx="4"
+         cy="4"
+         r="3"
+         class="bg_filled"
+         id="circle534" />
+    </marker>
+  </defs>
+  <text
+     x="22"
+     y="66"
+     id="text541">Bucket</text>
+  <line
+     x1="208"
+     y1="54"
+     x2="208"
+     y2="118"
+     class="solid"
+     id="line543" />
+  <text
+     x="222"
+     y="66"
+     id="text545">Omschrijving</text>
+  <text
+     x="534"
+     y="66"
+     id="text547">Review</text>
+  <text
+     x="22"
+     y="98"
+     id="text549">`hauswerk.official`</text>
+  <text
+     x="222"
+     y="98"
+     id="text551">Gekeurde</text>
+  <text
+     x="294"
+     y="98"
+     id="text553">en</text>
+  <text
+     x="318"
+     y="98"
+     id="text555">stabiele</text>
+  <text
+     x="390"
+     y="98"
+     id="text557">plugins</text>
+  <text
+     x="534"
+     y="98"
+     id="text559">✅</text>
+  <text
+     x="22"
+     y="114"
+     id="text561">`hauswerk.unofficial`</text>
+  <text
+     x="222"
+     y="114"
+     id="text563">Open</text>
+  <text
+     x="262"
+     y="114"
+     id="text565">upload</text>
+  <text
+     x="318"
+     y="114"
+     id="text567">voor</text>
+  <text
+     x="358"
+     y="114"
+     id="text569">iedereen</text>
+  <text
+     x="534"
+     y="114"
+     id="text571">❌</text>
+  <text
+     x="94"
+     y="274"
+     id="text573">Supabase</text>
+  <text
+     x="166"
+     y="274"
+     id="text575">Plugin</text>
+  <text
+     x="222"
+     y="274"
+     id="text577">Storage</text>
+  <text
+     x="126"
+     y="306"
+     id="text579">Supabase</text>
+  <text
+     x="198"
+     y="306"
+     id="text581">Buckets</text>
+  <text
+     x="46"
+     y="338"
+     id="text583">hauswerk.official</text>
+  <text
+     x="302"
+     y="338"
+     id="text585">Verified</text>
+  <text
+     x="94"
+     y="354"
+     id="text587">pluginA.zip</text>
+  <text
+     x="302"
+     y="354"
+     id="text589">✅</text>
+  <text
+     x="94"
+     y="370"
+     id="text591">pluginB.zip</text>
+  <text
+     x="46"
+     y="402"
+     id="text593">hauswerk.unofficial</text>
+  <text
+     x="302"
+     y="402"
+     id="text595">Open</text>
+  <text
+     x="94"
+     y="418"
+     id="text597">jouwplugin.zip</text>
+  <text
+     x="302"
+     y="418"
+     id="text599">🔓</text>
+  <text
+     x="94"
+     y="434"
+     id="text601">andereplugin.zip</text>
+  <rect
+     x="36"
+     y="154"
+     width="8"
+     height="8"
+     class="solid filled"
+     rx="0"
+     id="rect603" />
+  <rect
+     x="44"
+     y="154"
+     width="8"
+     height="8"
+     class="solid filled"
+     rx="0"
+     id="rect605" />
+  <text
+     x="150"
+     y="162"
+     id="text607">naar</text>
+  <line
+     x1="36"
+     y1="174"
+     x2="44"
+     y2="174"
+     class="solid"
+     id="line609" />
+  <text
+     x="54"
+     y="178"
+     id="text611">Via</text>
+  <text
+     x="86"
+     y="178"
+     id="text613">GUI</text>
+  <text
+     x="118"
+     y="178"
+     id="text615">upl</text>
+  <line
+     x1="144"
+     y1="178"
+     x2="144"
+     y2="174"
+     class="solid end_marked_open_circle"
+     id="line617" />
+  <text
+     x="150"
+     y="178"
+     id="text619">ader</text>
+  <line
+     x1="28"
+     y1="190"
+     x2="36"
+     y2="190"
+     class="solid"
+     id="line621" />
+  <text
+     x="46"
+     y="194"
+     id="text623">Plugin</text>
+  <text
+     x="102"
+     y="194"
+     id="text625">wordt:</text>
+  <line
+     x1="36"
+     y1="206"
+     x2="44"
+     y2="206"
+     class="solid"
+     id="line627" />
+  <text
+     x="54"
+     y="210"
+     id="text629">Gevalideerd</text>
+  <text
+     x="150"
+     y="210"
+     id="text631">op</text>
+  <text
+     x="174"
+     y="210"
+     id="text633">structuur</text>
+  <path
+     d="m 260,198 a 16,16 0 0 0 0,16"
+     class="nofill"
+     id="path635" />
+  <text
+     x="262"
+     y="210"
+     id="text637">`plugin.json`,</text>
+  <line
+     x1="28"
+     y1="222"
+     x2="36"
+     y2="222"
+     class="solid"
+     id="line639" />
+  <text
+     x="46"
+     y="226"
+     id="text641">Automatisch</text>
+  <text
+     x="142"
+     y="226"
+     id="text643">zichtbaar</text>
+  <text
+     x="222"
+     y="226"
+     id="text645">in</text>
+  <text
+     x="246"
+     y="226"
+     id="text647">de</text>
+  <text
+     x="270"
+     y="226"
+     id="text649">store</text>
+  <line
+     x1="36"
+     y1="238"
+     x2="44"
+     y2="238"
+     class="solid"
+     id="line651" />
+  <text
+     x="54"
+     y="242"
+     id="text653">Voorzien</text>
+  <text
+     x="126"
+     y="242"
+     id="text655">van</text>
+  <text
+     x="158"
+     y="242"
+     id="text657">tags,</text>
+  <text
+     x="206"
+     y="242"
+     id="text659">preview</text>
+  <text
+     x="270"
+     y="242"
+     id="text661">en</text>
+  <text
+     x="294"
+     y="242"
+     id="text663">slug</text>
+  <text
+     x="190"
+     y="162"
+     id="text665">`unofficial`</text>
+  <path
+     d="m 300,150 a 16,16 0 0 0 0,16"
+     class="nofill"
+     id="path667" />
+  <text
+     x="302"
+     y="162"
+     id="text669">zonder</text>
+  <text
+     x="358"
+     y="162"
+     id="text671">keuring</text>
+  <path
+     d="m 412,150 a 16,16 0 0 1 0,16"
+     class="nofill"
+     id="path673" />
+  <text
+     x="190"
+     y="178"
+     id="text675">script</text>
+  <path
+     d="m 252,166 a 16,16 0 0 0 0,16"
+     class="nofill"
+     id="path677" />
+  <text
+     x="254"
+     y="178"
+     id="text679">`pluginUploader.py`</text>
+  <path
+     d="m 404,166 a 16,16 0 0 1 0,16"
+     class="nofill"
+     id="path681" />
+  <text
+     x="382"
+     y="210"
+     id="text683">`.py`,</text>
+  <text
+     x="438"
+     y="210"
+     id="text685">etc.</text>
+  <path
+     d="m 468,198 a 16,16 0 0 1 0,16"
+     class="nofill"
+     id="path687" />
+  <g
+     id="g745"
+     transform="translate(4,6)">
+    <line
+       x1="8"
+       y1="32"
+       x2="596"
+       y2="32"
+       class="solid"
+       id="line689" />
+    <line
+       x1="8"
+       y1="32"
+       x2="4"
+       y2="40"
+       class="solid"
+       id="line691" />
+    <line
+       x1="4"
+       y1="40"
+       x2="588"
+       y2="40"
+       class="solid"
+       id="line693" />
+    <line
+       x1="4"
+       y1="40"
+       x2="4"
+       y2="464"
+       class="solid"
+       id="line695" />
+    <line
+       x1="592"
+       y1="32"
+       x2="588"
+       y2="40"
+       class="solid"
+       id="line697" />
+    <line
+       x1="588"
+       y1="40"
+       x2="588"
+       y2="328"
+       class="solid"
+       id="line699" />
+    <line
+       x1="596"
+       y1="32"
+       x2="596"
+       y2="464"
+       class="solid"
+       id="line701" />
+    <line
+       x1="4"
+       y1="72"
+       x2="588"
+       y2="72"
+       class="solid"
+       id="line703" />
+    <line
+       x1="588"
+       y1="328"
+       x2="544"
+       y2="416"
+       class="solid"
+       id="line705" />
+    <line
+       x1="568"
+       y1="368"
+       x2="584"
+       y2="400"
+       class="solid"
+       id="line707" />
+    <line
+       x1="520"
+       y1="416"
+       x2="544"
+       y2="416"
+       class="solid"
+       id="line709" />
+    <line
+       x1="584"
+       y1="400"
+       x2="568"
+       y2="432"
+       class="solid"
+       id="line711" />
+    <line
+       x1="520"
+       y1="416"
+       x2="496"
+       y2="464"
+       class="solid"
+       id="line713" />
+    <line
+       x1="544"
+       y1="432"
+       x2="568"
+       y2="432"
+       class="solid"
+       id="line715" />
+    <line
+       x1="576"
+       y1="416"
+       x2="584"
+       y2="432"
+       class="solid"
+       id="line717" />
+    <line
+       x1="544"
+       y1="432"
+       x2="528"
+       y2="464"
+       class="solid"
+       id="line719" />
+    <line
+       x1="516"
+       y1="48"
+       x2="516"
+       y2="104"
+       class="solid"
+       id="line721" />
+    <line
+       x1="516"
+       y1="104"
+       x2="504"
+       y2="128"
+       class="solid"
+       id="line723" />
+    <line
+       x1="4"
+       y1="128"
+       x2="580"
+       y2="128"
+       class="solid"
+       id="line725" />
+    <line
+       x1="580"
+       y1="128"
+       x2="580"
+       y2="312"
+       class="solid"
+       id="line727" />
+    <line
+       x1="580"
+       y1="312"
+       x2="544"
+       y2="384"
+       class="solid"
+       id="line729" />
+    <line
+       x1="520"
+       y1="384"
+       x2="544"
+       y2="384"
+       class="solid"
+       id="line731" />
+    <line
+       x1="520"
+       y1="384"
+       x2="480"
+       y2="464"
+       class="solid"
+       id="line733" />
+    <line
+       x1="512"
+       y1="400"
+       x2="552"
+       y2="400"
+       class="solid"
+       id="line735" />
+    <line
+       x1="4"
+       y1="464"
+       x2="596"
+       y2="464"
+       class="solid"
+       id="line737" />
+    <line
+       x1="560"
+       y1="448"
+       x2="576"
+       y2="448"
+       class="solid"
+       id="line739" />
+    <line
+       x1="584"
+       y1="432"
+       x2="576"
+       y2="448"
+       class="solid"
+       id="line741" />
+    <line
+       x1="560"
+       y1="448"
+       x2="552"
+       y2="464"
+       class="solid"
+       id="line743" />
+  </g>
+  <g
+     id="g761"
+     transform="translate(4,6)">
+    <line
+       x1="28"
+       y1="280"
+       x2="380"
+       y2="280"
+       class="solid"
+       id="line747" />
+    <line
+       x1="28"
+       y1="280"
+       x2="28"
+       y2="440"
+       class="solid"
+       id="line749" />
+    <line
+       x1="380"
+       y1="280"
+       x2="380"
+       y2="440"
+       class="solid"
+       id="line751" />
+    <line
+       x1="28"
+       y1="312"
+       x2="380"
+       y2="312"
+       class="solid"
+       id="line753" />
+    <line
+       x1="276"
+       y1="312"
+       x2="276"
+       y2="440"
+       class="solid"
+       id="line755" />
+    <line
+       x1="28"
+       y1="376"
+       x2="380"
+       y2="376"
+       class="solid"
+       id="line757" />
+    <line
+       x1="28"
+       y1="440"
+       x2="380"
+       y2="440"
+       class="solid"
+       id="line759" />
+  </g>
+  <g
+     id="g769"
+     transform="translate(4,6)">
+    <line
+       x1="60"
+       y1="336"
+       x2="60"
+       y2="368"
+       class="solid"
+       id="line763" />
+    <line
+       x1="60"
+       y1="344"
+       x2="80"
+       y2="344"
+       class="solid"
+       id="line765" />
+    <line
+       x1="60"
+       y1="360"
+       x2="80"
+       y2="360"
+       class="solid"
+       id="line767" />
+  </g>
+  <g
+     id="g777"
+     transform="translate(4,6)">
+    <line
+       x1="60"
+       y1="400"
+       x2="60"
+       y2="432"
+       class="solid"
+       id="line771" />
+    <line
+       x1="60"
+       y1="408"
+       x2="80"
+       y2="408"
+       class="solid"
+       id="line773" />
+    <line
+       x1="60"
+       y1="424"
+       x2="80"
+       y2="424"
+       class="solid"
+       id="line775" />
+  </g>
+  <g
+     id="g783"
+     transform="translate(4,6)">
+    <text
+       x="66"
+       y="156"
+       id="text779">🔓</text>
+    <text
+       x="90"
+       y="156"
+       id="text781">Upload</text>
+  </g>
+</svg>
