@@ -3,7 +3,7 @@ name: Per Plugin Release
 on:
   push:
     paths:
-      - 'plugins/**'
+      - 'official/**'
   workflow_dispatch:
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
         run: |
           import os, json, zipfile, subprocess
 
-          plugins_dir = "plugins"
+          plugins_dir = "official"
           out_dir = "dist"
           repo = os.environ["GITHUB_REPOSITORY"]
 
@@ -31,15 +31,30 @@ jobs:
 
           for name in os.listdir(plugins_dir):
               folder = os.path.join(plugins_dir, name)
-              if not os.path.isdir(folder): continue
+              if not os.path.isdir(folder):
+                  continue
+
+              meta = {
+                  "name": name,
+                  "version": "1.0",
+                  "description": "(geen beschrijving opgegeven)",
+                  "tags": [],
+                  "verified": True,
+                  "rating": 0,
+                  "preview": "preview.jpg"
+              }
+
               meta_path = os.path.join(folder, "metadata.json")
-              if not os.path.exists(meta_path): continue
+              if os.path.exists(meta_path):
+                  try:
+                      with open(meta_path) as f:
+                          user_meta = json.load(f)
+                          meta.update(user_meta)
+                  except Exception as e:
+                      print(f"⚠️ Waarschuwing: Fout bij lezen van {meta_path}: {e}")
 
-              with open(meta_path) as f:
-                  meta = json.load(f)
-
-              version = meta.get('version') or '1.0'
-tag = f"{name}-v{version}"
+              version = meta["version"]
+              tag = f"{name}-v{version}"
               zip_name = f"{name}.zip"
               zip_path = os.path.join(out_dir, zip_name)
 
@@ -50,25 +65,21 @@ tag = f"{name}-v{version}"
                           rel = os.path.relpath(full, folder)
                           zipf.write(full, os.path.join(name, rel))
 
-              # Release aanmaken per plugin
-              subprocess.run([
-                  "gh", "release", "delete", tag, "-y"
-              ], check=False)
+              subprocess.run(["gh", "release", "delete", tag, "-y"], check=False)
               subprocess.run([
                   "gh", "release", "create", tag, zip_path,
-                  "--title", f"{name} {version}",
-                  "--notes", meta.get("description", "")
+                  "--title", f"{meta['name']} {version}",
+                  "--notes", meta["description"]
               ], check=True)
 
-              # JSON entry
               plugins.append({
-                  "name": meta.get("name", name),
-                  "description": meta.get("description", ""),
-                  "tags": meta.get("tags", []),
-                  "verified": meta.get("verified", False),
-                  "rating": meta.get("rating", 0),
+                  "name": meta["name"],
+                  "description": meta["description"],
+                  "tags": meta["tags"],
+                  "verified": meta["verified"],
+                  "rating": meta["rating"],
                   "path": f"https://github.com/{repo}/releases/download/{tag}",
-                  "preview": "preview.jpg",
+                  "preview": meta["preview"],
                   "zip": zip_name
               })
 
