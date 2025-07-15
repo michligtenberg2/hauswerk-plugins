@@ -3,7 +3,7 @@
 
 ![Plugin Count](https://img.shields.io/badge/plugins-7-blue)
 ![plugins.json](https://img.shields.io/badge/store-up--to--date-brightgreen)
-![License](https://img.shields.io/github/license/michligtenberg2/Hauswerk_Plugins)
+![License](https://img.shields.io/github/license/michligtenberg2/Hauswerk-Plugins)
 
 Welkom bij de **Hauswerk Plugins** repository — de officiële opslagplek voor uitbreidbare tools binnen de [Hauswerk](https://github.com/michligtenberg2/Hauswerk) GUI.
 
