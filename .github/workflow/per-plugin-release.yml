@@ -1,0 +1,87 @@
+name: Per Plugin Release
+
+on:
+  push:
+    paths:
+      - 'plugins/**'
+  workflow_dispatch:
+
+jobs:
+  release-each-plugin:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🧾 Repo klonen
+        uses: actions/checkout@v3
+
+      - name: 🐍 Python installeren
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: 🔁 Verwerk plugins afzonderlijk
+        run: |
+          import os, json, zipfile, subprocess
+
+          plugins_dir = "plugins"
+          out_dir = "dist"
+          repo = os.environ["GITHUB_REPOSITORY"]
+
+          os.makedirs(out_dir, exist_ok=True)
+          plugins = []
+
+          for name in os.listdir(plugins_dir):
+              folder = os.path.join(plugins_dir, name)
+              if not os.path.isdir(folder): continue
+              meta_path = os.path.join(folder, "metadata.json")
+              if not os.path.exists(meta_path): continue
+
+              with open(meta_path) as f:
+                  meta = json.load(f)
+
+              version = meta.get('version') or '1.0'
+tag = f"{name}-v{version}"
+              zip_name = f"{name}.zip"
+              zip_path = os.path.join(out_dir, zip_name)
+
+              with zipfile.ZipFile(zip_path, "w") as zipf:
+                  for root, _, files in os.walk(folder):
+                      for file in files:
+                          full = os.path.join(root, file)
+                          rel = os.path.relpath(full, folder)
+                          zipf.write(full, os.path.join(name, rel))
+
+              # Release aanmaken per plugin
+              subprocess.run([
+                  "gh", "release", "delete", tag, "-y"
+              ], check=False)
+              subprocess.run([
+                  "gh", "release", "create", tag, zip_path,
+                  "--title", f"{name} {version}",
+                  "--notes", meta.get("description", "")
+              ], check=True)
+
+              # JSON entry
+              plugins.append({
+                  "name": meta.get("name", name),
+                  "description": meta.get("description", ""),
+                  "tags": meta.get("tags", []),
+                  "verified": meta.get("verified", False),
+                  "rating": meta.get("rating", 0),
+                  "path": f"https://github.com/{repo}/releases/download/{tag}",
+                  "preview": "preview.jpg",
+                  "zip": zip_name
+              })
+
+          with open("plugins.json", "w") as f:
+              json.dump(plugins, f, indent=2)
+        shell: python
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🔁 Commit plugins.json
+        run: |
+          git config user.name github-actions
+          git config user.email actions@github.com
+          git add plugins.json
+          git commit -m "🔄 Update plugins.json [auto]" || echo "No changes"
+          git push || echo "Nothing to push"

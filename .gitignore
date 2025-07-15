@@ -1,0 +1,22 @@
+# 💾 Tijdelijke output van GitHub Action
+dist/
+
+# 🐍 Python cache bestanden
+__pycache__/
+*.py[cod]
+*.pyo
+
+# 🧪 Test artifacts
+*.log
+*.tmp
+
+# 🛠️ IDE folders
+.vscode/
+.idea/
+
+# 📦 ZIP-plugins (als je ze per ongeluk lokaal bouwt)
+plugins/*.zip
+
+# 📄 OS bestanden
+.DS_Store
+Thumbs.db

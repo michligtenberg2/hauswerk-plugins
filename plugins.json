@@ -2,36 +2,43 @@
   {
     "name": "Audiofadebpm",
     "description": "Audiofadebpm plugin voor Hauswerk.",
-    "zip_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/audiofadebpm.zip"
+    "zip_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/audiofadebpm.zip",
+    "icon_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/audiofadebpm/icon.png"
   },
   {
     "name": "Clipper",
     "description": "Clipper plugin voor Hauswerk.",
-    "zip_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/clipper.zip"
+    "zip_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/clipper.zip",
+    "icon_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/clipper/icon.png"
   },
   {
     "name": "Collage",
     "description": "Collage plugin voor Hauswerk.",
-    "zip_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/collage.zip"
+    "zip_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/collage.zip",
+    "icon_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/collage/icon.png"
   },
   {
     "name": "Concat",
     "description": "Concat plugin voor Hauswerk.",
-    "zip_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/concat.zip"
+    "zip_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/concat.zip",
+    "icon_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/concat/icon.png"
   },
   {
     "name": "Psychotisch",
     "description": "Psychotisch plugin voor Hauswerk.",
-    "zip_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/psychotisch.zip"
+    "zip_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/psychotisch.zip",
+    "icon_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/psychotisch/icon.png"
   },
   {
     "name": "Stretcher",
     "description": "Stretcher plugin voor Hauswerk.",
-    "zip_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/stretcher.zip"
+    "zip_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/stretcher.zip",
+    "icon_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/stretcher/icon.png"
   },
   {
     "name": "Uibuilder",
     "description": "Uibuilder plugin voor Hauswerk.",
-    "zip_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/uibuilder.zip"
+    "zip_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/uibuilder.zip",
+    "icon_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/uibuilder/icon.png"
   }
 ]

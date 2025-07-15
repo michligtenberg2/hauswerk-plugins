@@ -7,9 +7,8 @@ layout: default
 
 # 🧰 Hauswerk Plugin Store
 
+---
 Welkom bij de officiële plugin-index voor de **Hauswerk** applicatie.  
-Ontdek visueel wat de community gebouwd heeft — of bouw zelf mee.
-
 ---
 
 ## 📦 Plugins

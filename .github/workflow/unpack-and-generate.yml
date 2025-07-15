@@ -1,0 +1,59 @@
+name: Plugin ZIP Unpacker + Index Generator
+
+on:
+  push:
+    paths:
+      - 'plugin_zips/**'
+      - '.github/workflows/unpack-and-generate.yml'
+  workflow_dispatch:
+
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Repo ophalen
+        uses: actions/checkout@v3
+
+      - name: 🐍 Python installeren
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: 🧳 Unpack plugin ZIPs
+        run: |
+          python unpack_plugins.py
+
+      - name: 🧠 Genereer plugins.json
+        run: |
+          python <<EOF
+          import os, json
+
+          plugins = []
+          for name in os.listdir("plugins"):
+              folder = os.path.join("plugins", name)
+              meta_path = os.path.join(folder, "metadata.json")
+              if os.path.isfile(meta_path):
+                  with open(meta_path) as f:
+                      meta = json.load(f)
+                  plugins.append({
+                      "name": meta.get("name", name),
+                      "description": meta.get("description", ""),
+                      "tags": meta.get("tags", []),
+                      "verified": meta.get("verified", False),
+                      "rating": meta.get("rating", 0),
+                      "path": f"https://github.com/${{ github.repository }}/raw/main/plugins/{name}",
+                      "preview": "preview.jpg",
+                      "zip": f"{name}.zip"
+                  })
+
+          with open("plugins.json", "w") as f:
+              json.dump(plugins, f, indent=2)
+          EOF
+
+      - name: 🔁 Commit plugins + index
+        run: |
+          git config user.name github-actions
+          git config user.email actions@github.com
+          git add plugins/ plugins.json
+          git commit -m "🔄 Plugins uitgepakt en index bijgewerkt" || echo "Geen veranderingen"
+          git push || echo "Niets te pushen"
