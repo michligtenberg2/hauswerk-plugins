@@ -1,0 +1,47 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hauswerk Plugin Viewer</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <h1>🧠 Hauswerk Plugin Viewer</h1>
+
+  <div id="leaderboard">
+    <h2>🏆 Meest gedownloade plugins</h2>
+    <ol id="leaderboard-list"></ol>
+  </div>
+
+  <div id="controls">
+    <input type="text" id="search" placeholder="🔍 Zoek plugin...">
+    <select id="tag-filter">
+      <option value="">📂 Alle categorieën</option>
+    </select>
+    <button id="toggle-crt">🌒 CRT Mode</button>
+  </div>
+
+  <div id="plugin-container"></div>
+
+  <div id="plugin-detail" class="hidden">
+    <button id="back-btn">⬅️ Terug</button>
+    <h2 id="detail-name"></h2>
+    <img id="detail-preview" src="" alt="Preview">
+    <div id="detail-description"></div>
+    <div id="detail-tags"></div>
+    <a id="detail-download" class="download-btn" href="#">⬇️ Download</a>
+    <div id="detail-rating"></div>
+    <div id="detail-changelog"></div>
+    <textarea id="feedback" placeholder="💬 Geef je feedback..."></textarea>
+    <button onclick="submitFeedback()">Verzend feedback</button>
+  </div>
+
+  <div id="modal" class="hidden">
+    <span id="modal-close">✖</span>
+    <img id="modal-img" src="">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

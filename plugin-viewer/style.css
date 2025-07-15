@@ -1,0 +1,107 @@
+body {
+  background-color: #1a1a1a;
+  color: #33ff33;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 2rem;
+}
+body.crt-amber { color: #ffcc66; }
+body.crt-invert { background-color: #eee; color: #111; }
+
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #00ffcc;
+}
+
+#leaderboard {
+  background: #111;
+  border: 1px solid #33ff33;
+  padding: 1rem;
+  margin: 1rem auto 2rem auto;
+  max-width: 600px;
+}
+#leaderboard h2 {
+  color: #00ccff;
+}
+#leaderboard li {
+  margin-bottom: 0.25rem;
+}
+
+#controls {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+#controls input, #controls select, #controls button {
+  font-family: inherit;
+  font-size: 1rem;
+  margin: 0.25rem;
+  padding: 0.4rem;
+}
+
+.plugin {
+  border: 1px dashed #33ff33;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #111;
+}
+.plugin img {
+  max-height: 120px;
+  display: block;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+.download-btn {
+  background-color: #33ff33;
+  color: #111;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.rating {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+#modal {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(0,0,0,0.8);
+  z-index: 10;
+}
+#modal.hidden { display: none; }
+#modal img { max-width: 80vw; max-height: 80vh; }
+#modal-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+#plugin-detail.hidden { display: none; }
+#plugin-detail {
+  background-color: #111;
+  border: 1px solid #33ff33;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+#plugin-detail img {
+  max-height: 200px;
+  display: block;
+  margin-bottom: 1rem;
+}
+#plugin-detail textarea {
+  width: 100%;
+  height: 80px;
+  margin-top: 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+}
+#plugin-detail button {
+  margin-top: 0.5rem;
+}
