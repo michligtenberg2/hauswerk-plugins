@@ -1,5 +1,7 @@
 **🌐 Available Languages:** [../Nederlands](README.md) | [English](README_EN.md) | [Deutsch](README_DE.md) | [Français](README_FR.md) | [中文](README_ZH.md)
 
+<link rel="stylesheet" href="style.css">
+
 # 🧹 Hauswerk Plugins
 
 ![Plugin Count](https://img.shields.io/badge/plugins-7-blue)
