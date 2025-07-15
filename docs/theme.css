@@ -1,0 +1,183 @@
+/* theme.css - Hauswerk App Store Style met dark mode & mobile navbar + button fade */
+
+:root {
+  --background: #f9f9fb;
+  --foreground: #111;
+  --accent: #666;
+  --accent-hover: #000;
+  --border: #e0e0e0;
+  --link: #007aff;
+  --link-hover: #005ecb;
+}
+
+html.dark {
+  --background: #111;
+  --foreground: #f9f9fb;
+  --accent: #e67e22;
+  --accent-hover: #d35400;
+  --border: #333;
+  --link: #ffa14a;
+  --link-hover: #ffbd80;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+main {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark main {
+  background: #1c1c1c;
+  box-shadow: none;
+}
+
+h1, h2 {
+  margin-top: 0;
+}
+
+.button {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.2s ease;
+}
+
+.button:hover {
+  background: var(--accent-hover);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.1), 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  margin-top: 1rem;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  text-align: left;
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+ul {
+  padding-left: 1.2rem;
+}
+
+ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* Navbar */
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark .navbar {
+  background: #1c1c1c;
+  border-bottom: 1px solid #333;
+  box-shadow: none;
+}
+
+.navbar .nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.navbar .nav-links a,
+.navbar .nav-links button {
+  background: none;
+  border: none;
+  color: var(--foreground);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-links a:hover,
+.navbar .nav-links button:hover {
+  color: var(--accent);
+}
+
+/* Mobile nav */
+.mobile-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--foreground);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+  .mobile-toggle {
+    display: block;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  .nav-links.show {
+    display: flex;
+  }
+  .nav-links a, .nav-links button {
+    margin-left: 0;
+    text-align: left;
+  }
+}
+
+/* Footer */
+footer {
+  margin-top: 3rem;
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+  border-top: 1px solid var(--border);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark footer {
+  color: #666;
+}
