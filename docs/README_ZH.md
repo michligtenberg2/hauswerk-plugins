@@ -1,5 +1,7 @@
 **🌐 支持语言:** [Nederlands](../README.md) | [English](README_EN.md) | [Deutsch](README_DE.md) | [Français](README_FR.md) | [中文](README_ZH.md)
 
+<link rel="stylesheet" href="style.css">
+
 # 🧹 Hauswerk 插件（中文）
 
 欢迎访问 **Hauswerk 插件库** — 这是 [Hauswerk](https://github.com/michligtenberg2/Hauswerk) 图形界面的官方插件仓库。
