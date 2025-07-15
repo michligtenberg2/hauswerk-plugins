@@ -1,0 +1,55 @@
+name: Per Plugin Release
+
+on:
+  push:
+    paths:
+      - 'official/**'
+  workflow_dispatch:
+
+jobs:
+  zip-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🧾 Repo klonen
+        uses: actions/checkout@v3
+
+      - name: 🔍 Plugins verzamelen en zippen
+        id: zips
+        run: |
+          mkdir -p dist
+          echo "plugin_matrix=[" > plugins.json
+          first=true
+          for dir in official/*; do
+            if [ -d "$dir" ]; then
+              name=$(basename "$dir")
+              zipfile="dist/$name.zip"
+              (cd "$dir" && zip -r "../$zipfile" .)
+              tag="${name}-v1.0"
+
+              if [ "$first" = true ]; then
+                first=false
+              else
+                echo "," >> plugins.json
+              fi
+              echo "{\"name\": \"$name\", \"tag\": \"$tag\", \"zip\": \"$zipfile\"}" >> plugins.json
+            fi
+          done
+          echo "]" >> plugins.json
+          cat plugins.json
+
+      - name: 🔁 Lees JSON in als matrix
+        uses: mikefarah/yq@v4
+        id: matrix
+        with:
+          cmd: yq '.plugin_matrix' < plugins.json
+
+      - name: 🔁 Genereer release per plugin
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ matrix.plugin.tag }}
+          name: ${{ matrix.plugin.name }} 1.0
+          body: Release voor plugin ${{ matrix.plugin.name }}
+          files: ${{ matrix.plugin.zip }}
+        strategy:
+          matrix:
+            plugin: ${{ fromJson(steps.matrix.outputs.result) }}
