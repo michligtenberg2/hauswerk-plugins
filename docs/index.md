@@ -49,7 +49,3 @@ Of lees de handleiding in je taal:
 - 🧪 Zelf bijdragen? Fork de repo of bekijk de README voor instructies
 
 ---
-## 🔧 Meer informatie
-- 💾 Bekijk plugins in [`/official/`](https://github.com/michligtenberg2/hauswerk-plugins/tree/main/official)
-- 🧪 Bekijk experimentele plugins in [`/unofficial/`](https://github.com/michligtenberg2/hauswerk-plugins/tree/main/unofficial)
-- 🖼️ Bekijk de [Plugin Galerij](plugingallery.md) voor previews
