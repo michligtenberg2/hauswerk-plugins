@@ -5,6 +5,25 @@ body {
   padding: 2rem;
 }
 
+body.dark {
+  background: #111;
+  color: #eee;
+}
+
+body.dark .plugin-card {
+  background: #1a1a1a;
+  border-color: #444;
+}
+
+body.dark .tag {
+  opacity: 0.95;
+}
+
+body.dark .about-box {
+  background: #222;
+  color: #eee;
+}
+
 .button {
   background: black;
   color: white;
