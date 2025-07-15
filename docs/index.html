@@ -3,61 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hauswerk Plugin Browser</title>
+  <title>Hauswerk Plugin Store</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="darkmode_toggle.js"></script>
-  <script defer src="plugin_data.js"></script>
-  <script defer src="i18n.js"></script>
-  <script defer src="plugin_browser.js"></script>
+  <script src="darkmode_toggle.js" defer></script>
 </head>
 <body>
-  <div id="language-switcher">
-    🌐 <select id="lang-select">
-      <option value="nl">🇳🇱 Nederlands</option>
-      <option value="en">🇬🇧 English</option>
-      <option value="de">🇩🇪 Deutsch</option>
-      <option value="fr">🇫🇷 Français</option>
-      <option value="zh">🇨🇳 中文</option>
-    </select>
-  </div>
-
-  <button id="about-toggle" class="button">ℹ️ Info</button>
-  <button id="dark-toggle" class="button">🌓 Wissel thema</button>
+  <button id="dark-toggle" class="button" style="position: fixed; top: 1rem; right: 1rem; z-index: 10;">🌓 Wissel thema</button>
 
   <header>
-    <h1>🧰 Hauswerk Plugin Browser <span id="pluginCount"></span></h1>
+    <img src="8B207E2E-3A69-4663-9DE0-B71C48182AAE.jpeg" alt="Hauswerk Banner" style="max-width:100%; border: 3px solid #000; margin-bottom: 2rem;">
+    <h1>🛠️ Hauswerk Plugin Store</h1>
+    <p>Welkom bij de <strong>officiële plugin-index</strong> voor de <em>Hauswerk</em> applicatie.</p>
   </header>
 
   <main>
-    <div class="search">
-      🔍 <input type="text" id="searchInput" placeholder="">
-    </div>
-    <label for="sort-select">🔽 Sorteer op:</label>
-    <select id="sort-select">
-      <option value="name">🔤 Naam (A–Z)</option>
-      <option value="verified">✅ Geverifieerd eerst</option>
-    </select>
+    <h2>💼 Plugins</h2>
+    <a href="plugin_browser.html" class="button">🔍 Open Plugin Browser</a>
+    <p>⚠️ Deze browser bevat <strong>officiële</strong> én <strong>community plugins</strong>. Je kunt filteren op tags, validatie, naam of functie.</p>
 
-    <div class="filters" id="tagFilters"></div>
-    <div id="pluginContainer"></div>
+    <h2>🧠 Zelf plugins maken</h2>
+    <p>Gebruik de <code>hauswerk</code> CLI of Plugin Wizard in de app om eigen plugins te maken:</p>
+    <pre><code>hauswerk plugin new</code></pre>
+    <p>Of lees de handleiding in je taal:</p>
 
-    <div id="previewOverlay" class="preview-overlay" style="display:none">
-      <img id="previewImage" src="">
-    </div>
+    <table>
+      <tr><th>🌐 Taal / Language</th><th>📖 Lees de handleiding</th></tr>
+      <tr><td>🇳🇱 Nederlands</td><td><a href="../README.md">README.md</a></td></tr>
+      <tr><td>🇬🇧 English</td><td><a href="README_EN.md">README_EN.md</a></td></tr>
+      <tr><td>🇩🇪 Deutsch</td><td><a href="README_DE.md">README_DE.md</a></td></tr>
+      <tr><td>🇫🇷 Français</td><td><a href="README_FR.md">README_FR.md</a></td></tr>
+      <tr><td>🇨🇳 中文 (Chinese)</td><td><a href="README_ZH.md">README_ZH.md</a></td></tr>
+    </table>
 
-    <div id="aboutOverlay" class="preview-overlay" style="display:none">
-      <div class="about-box">
-        <h2>ℹ️ Over de Plugin Browser</h2>
-        <p>Deze interactieve browser toont alle beschikbare Hauswerk plugins.</p>
-        <ul>
-          <li>🔍 Zoek op naam, tags of beschrijving</li>
-          <li>📋 Bekijk plugin.json of kopieer metadata</li>
-          <li>🌓 Wissel tussen licht en donker thema</li>
-          <li>🌐 Kies je taal</li>
-        </ul>
-        <p style="text-align:right;"><em>Klik ergens buiten dit venster of druk op Esc om te sluiten</em></p>
-      </div>
-    </div>
+    <h2>🛠️ Meer</h2>
+    <ul>
+      <li>💾 Bekijk de <a href="https://github.com/michligtenberg2/hauswerk-plugins/">pluginmap op GitHub</a></li>
+      <li>🧪 Zelf bijdragen? Fork de repo of bekijk de README voor instructies</li>
+    </ul>
   </main>
 </body>
 </html>
