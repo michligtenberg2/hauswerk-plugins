@@ -1,5 +1,5 @@
 title: Hauswerk Plugin Store
-baseurl: "/Hauswerk_Plugins"
+baseurl: "/hauswerk-plugins"
 url: "https://michligtenberg2.github.io"
 theme: minima
 markdown: kramdown
