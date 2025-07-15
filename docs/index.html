@@ -3,78 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hauswerk Plugin Store</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="darkmode_toggle.js" defer></script>
+  <title>Hauswerk Pagina</title>
+  <link rel="stylesheet" href="theme.css">
   <style>
-    nav#topnav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: #111;
-      border-bottom: 2px solid #33ff33;
-      padding: 0.5rem 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 100;
+    html {
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
-    nav#topnav a {
-      color: #33ff33;
-      text-decoration: none;
-      font-weight: bold;
-      margin-right: 1rem;
-    }
-    nav#topnav a:hover {
-      text-decoration: underline;
-    }
-    body {
-      padding-top: 3.5rem; /* ruimte voor de nav */
+    body, .navbar, main, footer {
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     }
   </style>
+  <script defer>
+    // Dark mode toggle + mobile menu toggle
+    function toggleDarkMode() {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('hauswerk-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (localStorage.getItem('hauswerk-theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+      document.getElementById('menu-toggle').addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.toggle('show');
+      });
+    });
+  </script>
 </head>
 <body>
-  <button id="dark-toggle" class="button" style="position: fixed; top: 1rem; right: 1rem; z-index: 101;">🌓 Wissel thema</button>
-
-  <nav id="topnav">
-    <div>
-      <a href="index.html">🏠 Plugin Store</a>
-      <a href="plugin_browser.html">🔍 Plugin Browser</a>
-      <a href="viewer.html">🧠 Plugin Viewer</a>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-brand">Hauswerk</div>
+    <button id="menu-toggle" class="mobile-toggle">☰</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="plugin_browser.html">Browser</a>
+      <a href="viewer.html">Viewer</a>
+      <a href="README.md">Docs</a>
+      <button onclick="toggleDarkMode()">🌓</button>
     </div>
   </nav>
 
-  <header>
-    <img src="bob.svg" alt="Hauswerk Banner" style="max-width:100%; border: 3px solid #000; margin-bottom: 2rem;">
-    <h1>🛠️ Hauswerk Plugin Store</h1>
-    <p>Welkom bij de <strong>officiële plugin-index</strong> voor de <em>Hauswerk</em> applicatie.</p>
-  </header>
+  <!-- Content Container -->
+  <div class="container">
+    <header>
+      <h1>📦 Titel van je pagina</h1>
+      <p>Introductie of korte uitleg over de inhoud hieronder.</p>
+    </header>
 
-  <main>
-    <h2>💼 Plugins</h2>
-    <a href="plugin_browser.html" class="button">🔍 Open Plugin Browser</a>
-    <p>⚠️ Deze browser bevat <strong>officiële</strong> én <strong>community plugins</strong>. Je kunt filteren op tags, validatie, naam of functie.</p>
+    <main>
+      <h2>🔧 Inhoudssectie</h2>
+      <p>Hier komt je content.</p>
+      <a class="button" href="#">Klik hier</a>
+    </main>
+  </div>
 
-    <h2>🧠 Zelf plugins maken</h2>
-    <p>Gebruik de <code>hauswerk</code> CLI of Plugin Wizard in de app om eigen plugins te maken:</p>
-    <pre><code>hauswerk plugin new</code></pre>
-    <p>Of lees de handleiding in je taal:</p>
-
-    <table>
-      <tr><th>🌐 Taal / Language</th><th>📖 Lees de handleiding</th></tr>
-      <tr><td>🇳🇱 Nederlands</td><td><a href="../README.md">README.md</a></td></tr>
-      <tr><td>🇬🇧 English</td><td><a href="README_EN.md">README_EN.md</a></td></tr>
-      <tr><td>🇩🇪 Deutsch</td><td><a href="README_DE.md">README_DE.md</a></td></tr>
-      <tr><td>🇫🇷 Français</td><td><a href="README_FR.md">README_FR.md</a></td></tr>
-      <tr><td>🇨🇳 中文 (Chinese)</td><td><a href="README_ZH.md">README_ZH.md</a></td></tr>
-    </table>
-
-    <h2>🛠️ Meer</h2>
-    <ul>
-      <li>💾 Bekijk de <a href="https://github.com/michligtenberg2/hauswerk-plugins/">pluginmap op GitHub</a></li>
-      <li>🧪 Zelf bijdragen? Fork de repo of bekijk de README voor instructies</li>
-    </ul>
-  </main>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Hauswerk. Gemaakt met liefde en plugins.</p>
+    </div>
+  </footer>
 </body>
 </html>
