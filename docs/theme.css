@@ -1,9 +1,10 @@
-/* theme.css - Hauswerk App Store Style met dark mode & mobile navbar */
+/* theme.css - Hauswerk App Store Style met dark mode & mobile navbar + button fade */
 
 :root {
   --background: #f9f9fb;
   --foreground: #111;
-  --accent: #007aff;
+  --accent: #666;
+  --accent-hover: #000;
   --border: #e0e0e0;
   --link: #007aff;
   --link-hover: #005ecb;
@@ -12,10 +13,11 @@
 html.dark {
   --background: #111;
   --foreground: #f9f9fb;
-  --accent: #0a84ff;
+  --accent: #e67e22;
+  --accent-hover: #d35400;
   --border: #333;
-  --link: #66aaff;
-  --link-hover: #99cfff;
+  --link: #ffa14a;
+  --link-hover: #ffbd80;
 }
 
 body {
@@ -24,6 +26,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -38,6 +41,7 @@ main {
   border-radius: 16px;
   padding: 2rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 html.dark main {
@@ -58,11 +62,11 @@ h1, h2 {
   text-decoration: none;
   border: none;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .button:hover {
-  background: var(--link-hover);
+  background: var(--accent-hover);
 }
 
 table {
@@ -97,6 +101,7 @@ ul li {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 html.dark .navbar {
@@ -120,6 +125,7 @@ html.dark .navbar {
   font-weight: 500;
   cursor: pointer;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .navbar .nav-links a:hover,
@@ -135,6 +141,7 @@ html.dark .navbar {
   border: none;
   color: var(--foreground);
   cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 @media (max-width: 768px) {
@@ -167,6 +174,7 @@ footer {
   font-size: 0.9rem;
   color: #888;
   border-top: 1px solid var(--border);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 html.dark footer {
