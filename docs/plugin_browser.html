@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Hauswerk Plugin Browser</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="plugin_data.js"></script>
+  <style>
+    body { font-family: monospace; padding: 2rem; background: #fff; }
+    .plugin-card { border: 2px solid black; padding: 1rem; margin-bottom: 2rem; background: #f8f8f8; }
+    .tag { background: #000; color: #fff; padding: 2px 6px; margin-left: 5px; display: inline-block; }
+    .search, .filters { margin-bottom: 1rem; }
+    .search input { font-size: 1rem; padding: 0.5rem; width: 300px; }
+    .button { background: black; color: white; padding: 0.4rem 1rem; text-decoration: none; display: inline-block; margin-right: 1rem; }
+    .filter-button { border: 1px solid black; margin: 2px; padding: 2px 6px; cursor: pointer; display: inline-block; }
+    .filter-button.active { background: black; color: white; }
+  </style>
+</head>
+<body>
+  <h1>🧰 Hauswerk Plugin Browser <span id="pluginCount"></span></h1>
+  <div class="search">
+    🔍 <input type="text" id="searchInput" placeholder="Zoek plugins...">
+  </div>
+  <div class="filters" id="tagFilters"></div>
+  <div id="pluginContainer"></div>
+
+  <script>
+    function uniqueTags(plugins) {
+      const all = plugins.flatMap(p => p.tags || []);
+      return [...new Set(all)];
+    }
+
+    function renderTagFilters() {
+      const filterDiv = document.getElementById("tagFilters");
+      const tags = uniqueTags(window.plugins);
+      tags.forEach(tag => {
+        const btn = document.createElement("span");
+        btn.className = "filter-button";
+        btn.innerText = tag;
+        btn.onclick = () => {
+          btn.classList.toggle("active");
+          renderPlugins(document.getElementById("searchInput").value);
+        };
+        filterDiv.appendChild(btn);
+      });
+    }
+
+    function getActiveTags() {
+      return [...document.querySelectorAll(".filter-button.active")].map(b => b.innerText);
+    }
+
+    function renderPlugins(filter = "") {
+      const container = document.getElementById("pluginContainer");
+      container.innerHTML = "";
+      const q = filter.toLowerCase();
+      const activeTags = getActiveTags();
+      let count = 0;
+
+      window.plugins.forEach(p => {
+        const matchQuery =
+          p.name.toLowerCase().includes(q) ||
+          p.tags.join(" ").toLowerCase().includes(q) ||
+          (p.description || "").toLowerCase().includes(q);
+
+        const matchTags = activeTags.length === 0 || activeTags.every(t => p.tags.includes(t));
+        if (matchQuery && matchTags) {
+          count++;
+          const card = document.createElement("div");
+          card.className = "plugin-card";
+          const tags = p.tags.map(t => `<span class='tag'>${t}</span>`).join(" ");
+          const verified = p.verified ? "✅ Geverifieerd" : "⚠️ Ongecontroleerd";
+          const jsonStr = JSON.stringify(p, null, 2);
+
+          card.innerHTML = `
+            <h2>${p.name} ${tags}</h2>
+            <img src="${p.path}/${p.preview}" alt="preview" style="width: 100%; max-width: 400px;">
+            <p><strong>Status:</strong> ${verified}</p>
+            <p><strong>Omschrijving:</strong> ${p.description || ""}</p>
+            <p>
+              <a class="button" href="${p.path}/${p.zip}" download>📥 Download</a>
+              <button onclick='copyJSON(\`${jsonStr}\`)'>📋 Kopieer JSON</button>
+            </p>
+            <details>
+              <summary>🔍 Bekijk plugin.json</summary>
+              <pre><code>${jsonStr}</code></pre>
+            </details>
+          `;
+          container.appendChild(card);
+        }
+      });
+      document.getElementById("pluginCount").innerText = `(${count})`;
+    }
+
+    function copyJSON(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert("✅ JSON gekopieerd!");
+      });
+    }
+
+    document.getElementById("searchInput").addEventListener("input", e => {
+      renderPlugins(e.target.value);
+    });
+
+    window.onload = () => {
+      renderTagFilters();
+      renderPlugins();
+    };
+  </script>
+</body>
+</html>

@@ -5,36 +5,47 @@ layout: default
 
 <link rel="stylesheet" href="style.css">
 
-# 🌍 Welkom bij de Hauswerk Plugin Store
+# 🧰 Hauswerk Plugin Store
 
-Dit is de officiële documentatie en plugin-index voor de **Hauswerk** applicatie.
-
-Hier kun je:
-- 📥 Plugins bekijken en downloaden
-- 🧠 Leren hoe je je eigen plugin maakt
-- 🚀 Doorschakelen naar documentatie in je voorkeurstaal
+Welkom bij de officiële plugin-index voor de **Hauswerk** applicatie.  
+Ontdek visueel wat de community gebouwd heeft — of bouw zelf mee.
 
 ---
 
-## 🗺️ Kies je taal / Choose your language
+## 📦 Plugins
 
-| Taal / Language | Bestandslink |
-|------------------|--------------|
-| 🇳🇱 Nederlands   | [README.md](../README.md)        |
-| 🇬🇧 English      | [README_EN.md](README_EN.md)      |
-| 🇩🇪 Deutsch      | [README_DE.md](README_DE.md)      |
-| 🇫🇷 Français     | [README_FR.md](README_FR.md)      |
+👉 Bezoek de interactieve pluginbrowser om te zoeken, filteren en downloaden:
+
+<a href="plugin_browser.html" class="button" style="font-size:1.1rem; padding: 1rem; display: inline-block; border: 2px solid black; background: #000; color: #fff; margin-bottom: 1rem;">
+🔍 Open Plugin Browser
+</a>
+
+> ⚠️ Deze browser bevat **officiële** én **community plugins**. Je kunt filteren op tags, validatie, naam of functie.
+
+---
+
+## 🧠 Zelf plugins maken
+
+Gebruik de `hauswerk` CLI of Plugin Wizard in de app om eigen plugins te maken.
+
+```bash
+hauswerk plugin new
+```
+
+Of lees de handleiding in je taal:
+
+| 🌐 Taal / Language | 📖 Lees de handleiding |
+|-------------------|------------------------|
+| 🇳🇱 Nederlands     | [README.md](../README.md)        |
+| 🇬🇧 English        | [README_EN.md](README_EN.md)      |
+| 🇩🇪 Deutsch        | [README_DE.md](README_DE.md)      |
+| 🇫🇷 Français       | [README_FR.md](README_FR.md)      |
 | 🇨🇳 中文 (Chinese) | [README_ZH.md](README_ZH.md)      |
 
 ---
 
-## 🔧 Meer informatie
-- 💾 Bekijk plugins in [`/official/`](https://github.com/michligtenberg2/hauswerk-plugins/tree/main/official)
-- 🧪 Bekijk experimentele plugins in [`/unofficial/`](https://github.com/michligtenberg2/hauswerk-plugins/tree/main/unofficial)
-- 🛠️ Wil je bijdragen? Bekijk de instructies in de README
+## 🛠️ Meer
+- 💾 Bekijk de [pluginmap op GitHub](https://github.com/michligtenberg2/hauswerk-plugins/)
+- 🧪 Zelf bijdragen? Fork de repo of bekijk de README voor instructies
 
 ---
-
-<footer>
-📦 Powered by <a href="https://github.com/michligtenberg2/Hauswerk">Hauswerk</a>
-</footer>
