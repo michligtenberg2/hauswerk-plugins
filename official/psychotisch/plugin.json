@@ -1,8 +1,0 @@
-{
-  "name": "Psychotisch",
-  "entry": "psychotisch.py",
-  "class": "PsychotischWidget",
-  "icon": "psychotisch.svg",
-  "tags": [],
-  "verified": true
-}

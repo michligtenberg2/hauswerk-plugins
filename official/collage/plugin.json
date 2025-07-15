@@ -1,8 +1,0 @@
-{
-  "name": "Collage",
-  "entry": "collage.py",
-  "class": "CollageWidget",
-  "icon": "collage.svg",
-  "tags": [],
-  "verified": true
-}

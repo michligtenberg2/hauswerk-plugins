@@ -1,8 +1,0 @@
-{
-  "name": "Clipper",
-  "entry": "clipper.py",
-  "class": "ClipperWidget",
-  "icon": "clipper.svg",
-  "tags": [],
-  "verified": true
-}
