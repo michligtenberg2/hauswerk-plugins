@@ -10,6 +10,39 @@ body {
 h1, h2, h3 {
   color: #1a1a1a;
 }
+.lang-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  background-color: #fff;
+  border: 2px solid #111;
+}
+.lang-table th {
+  background-color: #111;
+  color: #fff;
+  padding: 0.8rem;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+.lang-table td {
+  padding: 0.7rem;
+  border: 2px solid #111;
+  font-size: 1rem;
+  text-align: left;
+}
+.lang-table tr:nth-child(even) td {
+  background-color: #f9f9f9;
+}
+.lang-table a {
+  font-weight: bold;
+  color: #e63946;
+  text-decoration: none;
+}
+.lang-table a:hover {
+  text-decoration: underline;
+  color: #c30000;
+}
 table {
   width: 100%;
   border-collapse: collapse;
