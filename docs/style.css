@@ -1,1 +1,97 @@
-body { font-family: monospace; background: white; color: black; } .button { background: black; color: white; padding: 0.5rem 1rem; text-decoration: none; border: 2px solid black; }
+body {
+  font-family: 'Inter', sans-serif;
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  background: #f9f9f9;
+  color: #222;
+  line-height: 1.6;
+}
+
+h1, h2 {
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+a {
+  color: #111;
+  text-decoration: underline;
+}
+
+.button {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.plugin-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.plugin-card h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+.plugin-card img {
+  max-width: 100%;
+  border-radius: 6px;
+  margin: 1rem 0;
+}
+
+.tag {
+  background: #e0e0e0;
+  color: #333;
+  font-size: 0.8rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-left: 5px;
+}
+
+.search input {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+
+.filter-button {
+  border: 1px solid #aaa;
+  background: #f0f0f0;
+  color: #333;
+  font-size: 0.85rem;
+  padding: 4px 10px;
+  margin: 3px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.filter-button.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+pre {
+  background: #f5f5f5;
+  padding: 0.75rem;
+  overflow-x: auto;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
