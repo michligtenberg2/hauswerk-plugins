@@ -6,9 +6,44 @@
   <title>Hauswerk Plugin Store</title>
   <link rel="stylesheet" href="style.css">
   <script src="darkmode_toggle.js" defer></script>
+  <style>
+    nav#topnav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #111;
+      border-bottom: 2px solid #33ff33;
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+    nav#topnav a {
+      color: #33ff33;
+      text-decoration: none;
+      font-weight: bold;
+      margin-right: 1rem;
+    }
+    nav#topnav a:hover {
+      text-decoration: underline;
+    }
+    body {
+      padding-top: 3.5rem; /* ruimte voor de nav */
+    }
+  </style>
 </head>
 <body>
-  <button id="dark-toggle" class="button" style="position: fixed; top: 1rem; right: 1rem; z-index: 10;">🌓 Wissel thema</button>
+  <button id="dark-toggle" class="button" style="position: fixed; top: 1rem; right: 1rem; z-index: 101;">🌓 Wissel thema</button>
+
+  <nav id="topnav">
+    <div>
+      <a href="index.html">🏠 Plugin Store</a>
+      <a href="plugin_browser.html">🔍 Plugin Browser</a>
+      <a href="viewer.html">🧠 Plugin Viewer</a>
+    </div>
+  </nav>
 
   <header>
     <img src="bob.svg" alt="Hauswerk Banner" style="max-width:100%; border: 3px solid #000; margin-bottom: 2rem;">
