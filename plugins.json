@@ -2,42 +2,77 @@
   {
     "name": "Audiofadebpm",
     "description": "Audiofadebpm plugin voor Hauswerk.",
+    "version": "1.0",
+    "tags": [],
+    "verified": false,
+    "rating": 0,
+    "preview": "preview.jpg",
     "zip_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/audiofadebpm.zip",
     "icon_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/audiofadebpm/icon.png"
   },
   {
     "name": "Clipper",
     "description": "Clipper plugin voor Hauswerk.",
+    "version": "1.0",
+    "tags": [],
+    "verified": false,
+    "rating": 0,
+    "preview": "preview.jpg",
     "zip_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/clipper.zip",
     "icon_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/clipper/icon.png"
   },
   {
     "name": "Collage",
     "description": "Collage plugin voor Hauswerk.",
+    "version": "1.0",
+    "tags": [],
+    "verified": false,
+    "rating": 0,
+    "preview": "preview.jpg",
     "zip_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/collage.zip",
     "icon_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/collage/icon.png"
   },
   {
     "name": "Concat",
     "description": "Concat plugin voor Hauswerk.",
+    "version": "1.0",
+    "tags": [],
+    "verified": false,
+    "rating": 0,
+    "preview": "preview.jpg",
     "zip_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/concat.zip",
     "icon_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/concat/icon.png"
   },
   {
     "name": "Psychotisch",
     "description": "Psychotisch plugin voor Hauswerk.",
+    "version": "1.0",
+    "tags": [],
+    "verified": false,
+    "rating": 0,
+    "preview": "preview.jpg",
     "zip_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/psychotisch.zip",
     "icon_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/psychotisch/icon.png"
   },
   {
     "name": "Stretcher",
     "description": "Stretcher plugin voor Hauswerk.",
+    "version": "1.0",
+    "tags": [],
+    "verified": false,
+    "rating": 0,
+    "preview": "preview.jpg",
     "zip_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/stretcher.zip",
     "icon_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/stretcher/icon.png"
   },
   {
     "name": "Uibuilder",
     "description": "Uibuilder plugin voor Hauswerk.",
+    "version": "1.0",
+    "tags": [],
+    "verified": false,
+    "rating": 0,
+    "preview": "preview.jpg",
     "zip_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/uibuilder.zip",
     "icon_url": "https://github.com/michligtenberg2/hauswerk-plugins/raw/main/official/uibuilder/icon.png"
   }
