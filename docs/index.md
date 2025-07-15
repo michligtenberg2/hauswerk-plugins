@@ -3,7 +3,7 @@ title: Hauswerk Plugin Store
 layout: default
 ---
 
-<link rel="stylesheet" href="/hauswerk-plugins/docs/style.css">
+<link rel="stylesheet" href="style.css">
 
 # 🌍 Welkom bij de Hauswerk Plugin Store
 
