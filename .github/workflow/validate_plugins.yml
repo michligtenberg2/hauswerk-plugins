@@ -28,8 +28,8 @@ jobs:
           first=1
           for f in unofficial/*.zip; do
             name=$(basename "$f" .zip)
-            url="https://github.com/michligtenberg2/Hauswerk_Plugins/raw/main/unofficial/$name.zip"
-            preview="https://raw.githubusercontent.com/michligtenberg2/Hauswerk_Plugins/main/unofficial/$name/preview.png"
+            url="https://github.com/michligtenberg2/hauswerk-plugins/raw/main/unofficial/$name.zip"
+            preview="https://raw.githubusercontent.com/michligtenberg2/hauswerk-plugins/main/unofficial/$name/preview.png"
             unzip -p "$f" plugin.json > tmp.json
             entry=$(jq -r '.entry' tmp.json)
             cls=$(jq -r '.class' tmp.json)
