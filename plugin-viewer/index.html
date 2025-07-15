@@ -8,29 +8,22 @@
 </head>
 <body>
   <h1>🧠 Hauswerk Plugin Viewer</h1>
+
+  <div id="controls">
+    <input type="text" id="search" placeholder="🔍 Zoek plugin...">
+    <select id="tag-filter">
+      <option value="">📂 Alle categorieën</option>
+    </select>
+    <button id="toggle-crt">🌒 CRT Mode</button>
+  </div>
+
   <div id="plugin-container"></div>
 
-  <script>
-    fetch('https://izlcnpelomuuwxijnnuh.supabase.co/storage/v1/object/public/hauswerk.official/official_plugins.json')
-      .then(response => response.json())
-      .then(plugins => {
-        const container = document.getElementById('plugin-container');
-        plugins.forEach(plugin => {
-          const div = document.createElement('div');
-          div.className = 'plugin';
-          div.innerHTML = `
-            <h2>${plugin.name}</h2>
-            <img src="${plugin.preview_url}" alt="preview">
-            <p><strong>Beschrijving:</strong> ${plugin.description}</p>
-            <p><strong>Tags:</strong> ${plugin.tags.join(', ')}</p>
-            <a href="${plugin.zip_url}" class="download-btn">⬇️ Download</a>
-          `;
-          container.appendChild(div);
-        });
-      })
-      .catch(err => {
-        document.getElementById('plugin-container').innerHTML = '<p style="color: red;">Fout bij laden plugins.</p>';
-      });
-  </script>
+  <div id="modal" class="hidden">
+    <span id="modal-close">✖</span>
+    <img id="modal-img" src="">
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
