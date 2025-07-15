@@ -3,46 +3,7 @@ title: Hauswerk Plugin Store
 layout: default
 ---
 
-<style>
-  body {
-    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background: #fdfdfd;
-    color: #222;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-    line-height: 1.7;
-  }
-  h1, h2, h3 {
-    color: #1a1a1a;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-  }
-  table, th, td {
-    border: 1px solid #ddd;
-  }
-  th, td {
-    padding: 0.6rem;
-    text-align: left;
-  }
-  tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  code {
-    background: #f1f1f1;
-    padding: 2px 6px;
-    border-radius: 4px;
-  }
-  footer {
-    margin-top: 3rem;
-    font-size: 0.9rem;
-    color: #777;
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 
 # 🌍 Welkom bij de Hauswerk Plugin Store
 
