@@ -9,8 +9,22 @@ body.crt-invert { background-color: #eee; color: #111; }
 
 h1 {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   color: #00ffcc;
+}
+
+#leaderboard {
+  background: #111;
+  border: 1px solid #33ff33;
+  padding: 1rem;
+  margin: 1rem auto 2rem auto;
+  max-width: 600px;
+}
+#leaderboard h2 {
+  color: #00ccff;
+}
+#leaderboard li {
+  margin-bottom: 0.25rem;
 }
 
 #controls {
@@ -69,7 +83,6 @@ h1 {
   cursor: pointer;
 }
 
-/* Plugin detailpagina */
 #plugin-detail.hidden { display: none; }
 #plugin-detail {
   background-color: #111;
