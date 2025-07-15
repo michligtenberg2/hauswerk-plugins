@@ -1,0 +1,8 @@
+{
+  "name": "Stretcher",
+  "entry": "stretcher.py",
+  "class": "StretcherWidget",
+  "icon": "stretcher.svg",
+  "tags": [],
+  "verified": true
+}

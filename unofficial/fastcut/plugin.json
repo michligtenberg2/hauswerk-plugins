@@ -1,0 +1,8 @@
+{
+  "name": "Fastcut",
+  "entry": "fastcut.py",
+  "class": "FastcutWidget",
+  "icon": "fastcut.png",
+  "tags": [],
+  "verified": false
+}

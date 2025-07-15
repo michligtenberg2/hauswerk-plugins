@@ -1,0 +1,8 @@
+{
+  "name": "Myplugin",
+  "entry": "myplugin.py",
+  "class": "MypluginWidget",
+  "icon": "myplugin.png",
+  "tags": [],
+  "verified": false
+}

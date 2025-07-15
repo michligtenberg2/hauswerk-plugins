@@ -1,0 +1,8 @@
+{
+  "name": "Demo_fx",
+  "entry": "demo_fx.py",
+  "class": "Demo_fxWidget",
+  "icon": "demo_fx.png",
+  "tags": [],
+  "verified": false
+}

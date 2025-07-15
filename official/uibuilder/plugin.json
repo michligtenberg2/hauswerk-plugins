@@ -1,0 +1,8 @@
+{
+  "name": "Uibuilder",
+  "entry": "uibuilder.py",
+  "class": "UibuilderWidget",
+  "icon": "uibuilder.svg",
+  "tags": [],
+  "verified": true
+}
