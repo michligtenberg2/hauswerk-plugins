@@ -1,9 +1,9 @@
-<link rel="stylesheet" href="/hauswerk-plugins/docs/style.css">
-
 ---
 title: Hauswerk Plugin Store
 layout: default
 ---
+
+<link rel="stylesheet" href="/hauswerk-plugins/docs/style.css">
 
 # 🌍 Welkom bij de Hauswerk Plugin Store
 
