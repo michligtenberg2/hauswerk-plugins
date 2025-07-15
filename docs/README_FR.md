@@ -1,5 +1,7 @@
 **🌐 Langues disponibles:** [Nederlands](../README.md) | [English](README_EN.md) | [Deutsch](README_DE.md) | [Français](README_FR.md) | [中文](README_ZH.md)
 
+<link rel="stylesheet" href="style.css">
+
 # 🧹 Plugins Hauswerk (Français)
 
 Bienvenue dans le dépôt **Hauswerk Plugins** — le dépôt officiel d’extensions pour l’interface graphique [Hauswerk](https://github.com/michligtenberg2/Hauswerk).
