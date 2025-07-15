@@ -1,7 +1,5 @@
----
 title: Hauswerk Plugin Store
 layout: default
----
 
 <link rel="stylesheet" href="style.css">
 
@@ -29,8 +27,8 @@ Hier kun je:
 ---
 
 ## 🔧 Meer informatie
-- 💾 Bekijk plugins in [`/official/`](https://github.com/michligtenberg2/Hauswerk_Plugins/tree/main/official)
-- 🧪 Bekijk experimentele plugins in [`/unofficial/`](https://github.com/michligtenberg2/Hauswerk_Plugins/tree/main/unofficial)
+- 💾 Bekijk plugins in [`/official/`](https://github.com/michligtenberg2/hauswerk-plugins/tree/main/official)
+- 🧪 Bekijk experimentele plugins in [`/unofficial/`](https://github.com/michligtenberg2/hauswerk-plugins/tree/main/unofficial)
 - 🛠️ Wil je bijdragen? Bekijk de instructies in de README
 
 ---
