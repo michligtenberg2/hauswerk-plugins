@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hauswerk Plugin Browser</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="darkmode_toggle.js"></script>
+  <script defer src="plugin_data.js"></script>
+  <script defer src="i18n.js"></script>
+  <script defer src="plugin_browser.js"></script>
+</head>
+<body>
+  <div id="language-switcher">
+    🌐 <select id="lang-select">
+      <option value="nl">🇳🇱 Nederlands</option>
+      <option value="en">🇬🇧 English</option>
+      <option value="de">🇩🇪 Deutsch</option>
+      <option value="fr">🇫🇷 Français</option>
+      <option value="zh">🇨🇳 中文</option>
+    </select>
+  </div>
+
+  <button id="about-toggle" class="button">ℹ️ Info</button>
+  <button id="dark-toggle" class="button">🌓 Wissel thema</button>
+
+  <header>
+    <h1>🧰 Hauswerk Plugin Browser <span id="pluginCount"></span></h1>
+  </header>
+
+  <main>
+    <div class="search">
+      🔍 <input type="text" id="searchInput" placeholder="">
+    </div>
+    <label for="sort-select">🔽 Sorteer op:</label>
+    <select id="sort-select">
+      <option value="name">🔤 Naam (A–Z)</option>
+      <option value="verified">✅ Geverifieerd eerst</option>
+    </select>
+
+    <div class="filters" id="tagFilters"></div>
+    <div id="pluginContainer"></div>
+
+    <div id="previewOverlay" class="preview-overlay" style="display:none">
+      <img id="previewImage" src="">
+    </div>
+
+    <div id="aboutOverlay" class="preview-overlay" style="display:none">
+      <div class="about-box">
+        <h2>ℹ️ Over de Plugin Browser</h2>
+        <p>Deze interactieve browser toont alle beschikbare Hauswerk plugins.</p>
+        <ul>
+          <li>🔍 Zoek op naam, tags of beschrijving</li>
+          <li>📋 Bekijk plugin.json of kopieer metadata</li>
+          <li>🌓 Wissel tussen licht en donker thema</li>
+          <li>🌐 Kies je taal</li>
+        </ul>
+        <p style="text-align:right;"><em>Klik ergens buiten dit venster of druk op Esc om te sluiten</em></p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
