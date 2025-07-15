@@ -1,5 +1,5 @@
 # 🧹 Hauswerk Plugins
-**🌐 Beschikbare talen:** [Nederlands](README.md) | [English](docs/README_EN.md) | [Deutsch](docs/README_DE.md) | [docs/Français](README_FR.md) | [中文](docs/README_ZH.md)
+**🌐 Beschikbare talen:** [Nederlands](README.md) | [English](docs/README_EN.md) | [Deutsch](docs/README_DE.md) | [/Français](docs/README_FR.md) | [中文](docs/README_ZH.md)
 
 ![Plugin Count](https://img.shields.io/badge/plugins-7-blue)
 ![plugins.json](https://img.shields.io/badge/store-up--to--date-brightgreen)
