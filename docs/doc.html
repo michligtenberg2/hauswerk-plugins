@@ -66,7 +66,18 @@
 
       <section id="intro">
         <h2>Introductie</h2>
-        <p>Welkom in de officiële documentatie voor <strong>Hauswerk Plugins</strong>. Hier leer je hoe je plugins ontwikkelt, uploadt en integreert met de Hauswerk GUI.</p>
+        <p><strong>Hauswerk</strong>is een open-source GUI-applicatie, gebouwd met Python (PyQt6), waarmee je op modulaire wijze video- en audiobewerkingen kunt uitvoeren via plugins. Zie het als een digitale gereedschapskist: de hoofdinterface bestaat uit verschillende tabbladen, elk met een specifieke tool (plugin). Standaard biedt Hauswerk diverse officiële plugins zoals Collage, Clipper, Stretcher en Concat – elk tabblad vertegenwoordigt een andere functionaliteit (bijv. een collage van video’s maken, clips random knippen, video’s vertragen, video’s aan elkaar plakken, enz.). Daarnaast is er een algemeen Dashboard-tabblad voor overzicht en mogelijk een Plugin Store-tabblad om nieuwe plugins te ontdekken en te installeren.
+
+Het kernidee van Hauswerk is flexibiliteit: nieuwe functies kunnen eenvoudig worden toegevoegd als plugin. Een plugin is in feite een Python-module die een Qt-widget ( QWidget) bevat met eigen GUI-logica. De Hauswerk-app laadt zulke plugins dynamisch en integreert de plugin-widgets naadloos in de interface (meestal als nieuwe tabbladen of menu-items). Officiële plugins (zoals de bovengenoemde tools) worden via de ingebouwde plugin-browser aangeboden, en gebruikers kunnen ook community-plugins installeren of zelf ontwikkelen.
+
+Onder de motorkap biedt Hauswerk enkele centrale hulpmiddelen aan plugins:
+
+    Een SettingsManager voor applicatie-instellingen (zie settings.py) – hiermee kunnen plugins globale instellingen lezen/schrijven, opgeslagen in een JSON-configuratiebestand (standaard ~/.hauswerk_settings.json).
+    Een Thema/Style manager (zie style.py) voor thema-beheer – zorgt voor consistente styling (licht/donker thema) van de GUI en plugins.
+    Een Preset-systeem voor het opslaan/herladen van plugin-specifieke configuraties (bijv. de positie van clips in de Collage-plugin) via JSON-bestanden.
+    Een ThumbnailWorker en FFmpegWorker mechanisme voor achtergrondprocessen – hiermee kunnen plugins zware taken (zoals videoverwerking via FFmpeg of het genereren van thumbnails) in aparte threads uitvoeren zodat de GUI responsief blijft:contentReference[oaicite:0]{index=0}:contentReference[oaicite:1]{index=1}.
+
+In deze documentatie leer je hoe je Hauswerk-plugins kunt ontwikkelen, uploaden en gebruiken. We bespreken de plugin-structuur, de integratie met de Hauswerk GUI, het gebruik van presets/thumbnails/workers, en we geven best practices voor validatie en foutafhandeling. Of je nu een gebruiker bent die een plugin wil installeren of een ontwikkelaar die er een wil bouwen – deze gids helpt je op weg.</p>
       </section>
 
       <section id="supabase">
