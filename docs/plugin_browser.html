@@ -4,60 +4,77 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hauswerk Plugin Browser</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="theme.css">
   <script defer src="darkmode_toggle.js"></script>
   <script defer src="plugin_data.js"></script>
   <script defer src="i18n.js"></script>
   <script defer src="plugin_browser.js"></script>
 </head>
 <body>
-  <div id="language-switcher">
-    🌐 <select id="lang-select">
-      <option value="nl">🇳🇱 Nederlands</option>
-      <option value="en">🇬🇧 English</option>
-      <option value="de">🇩🇪 Deutsch</option>
-      <option value="fr">🇫🇷 Français</option>
-      <option value="zh">🇨🇳 中文</option>
-    </select>
+  <nav class="navbar">
+    <div class="nav-brand">Hauswerk</div>
+    <button id="menu-toggle" class="mobile-toggle">☰</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="plugin_browser.html" class="active">Browser</a>
+      <a href="viewer.html">Viewer</a>
+      <a href="README.md">Docs</a>
+      <button onclick="toggleDarkMode()">🌓</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <main>
+      <div id="language-switcher" style="margin-bottom: 1rem;">
+        🌐 <select id="lang-select">
+          <option value="nl">🇳🇱 Nederlands</option>
+          <option value="en">🇬🇧 English</option>
+          <option value="de">🇩🇪 Deutsch</option>
+          <option value="fr">🇫🇷 Français</option>
+          <option value="zh">🇨🇳 中文</option>
+        </select>
+      </div>
+
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-bottom: 1rem;">
+        <button id="about-toggle" class="button">ℹ️ Info</button>
+        <button id="dark-toggle" class="button" onclick="toggleDarkMode()">🌓 Wissel thema</button>
+        <label for="sort-select">🔽 Sorteer op:</label>
+        <select id="sort-select">
+          <option value="name">🔤 Naam (A–Z)</option>
+          <option value="verified">✅ Geverifieerd eerst</option>
+        </select>
+        <div class="search">
+          🔍 <input type="text" id="searchInput" placeholder="Zoek plugins...">
+        </div>
+      </div>
+
+      <div class="filters" id="tagFilters" style="margin-bottom: 1rem;"></div>
+      <div id="pluginContainer"></div>
+
+      <div id="previewOverlay" class="preview-overlay" style="display:none">
+        <img id="previewImage" src="">
+      </div>
+
+      <div id="aboutOverlay" class="preview-overlay" style="display:none">
+        <div class="about-box">
+          <h2>ℹ️ Over de Plugin Browser</h2>
+          <p>Deze interactieve browser toont alle beschikbare Hauswerk plugins.</p>
+          <ul>
+            <li>🔍 Zoek op naam, tags of beschrijving</li>
+            <li>📋 Bekijk plugin.json of kopieer metadata</li>
+            <li>🌓 Wissel tussen licht en donker thema</li>
+            <li>🌐 Kies je taal</li>
+          </ul>
+          <p style="text-align:right;"><em>Klik ergens buiten dit venster of druk op Esc om te sluiten</em></p>
+        </div>
+      </div>
+    </main>
   </div>
 
-  <button id="about-toggle" class="button">ℹ️ Info</button>
-  <button id="dark-toggle" class="button">🌓 Wissel thema</button>
-
-  <header>
-    <h1>🧰 Hauswerk Plugin Browser <span id="pluginCount"></span></h1>
-  </header>
-
-  <main>
-    <div class="search">
-      🔍 <input type="text" id="searchInput" placeholder="">
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Hauswerk. Gemaakt met liefde en plugins.</p>
     </div>
-    <label for="sort-select">🔽 Sorteer op:</label>
-    <select id="sort-select">
-      <option value="name">🔤 Naam (A–Z)</option>
-      <option value="verified">✅ Geverifieerd eerst</option>
-    </select>
-
-    <div class="filters" id="tagFilters"></div>
-    <div id="pluginContainer"></div>
-
-    <div id="previewOverlay" class="preview-overlay" style="display:none">
-      <img id="previewImage" src="">
-    </div>
-
-    <div id="aboutOverlay" class="preview-overlay" style="display:none">
-      <div class="about-box">
-        <h2>ℹ️ Over de Plugin Browser</h2>
-        <p>Deze interactieve browser toont alle beschikbare Hauswerk plugins.</p>
-        <ul>
-          <li>🔍 Zoek op naam, tags of beschrijving</li>
-          <li>📋 Bekijk plugin.json of kopieer metadata</li>
-          <li>🌓 Wissel tussen licht en donker thema</li>
-          <li>🌐 Kies je taal</li>
-        </ul>
-        <p style="text-align:right;"><em>Klik ergens buiten dit venster of druk op Esc om te sluiten</em></p>
-      </div>
-    </div>
-  </main>
+  </footer>
 </body>
 </html>
