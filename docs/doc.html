@@ -4,73 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hauswerk Documentatie</title>
-  <!-- Externe CSS-bestanden voor thema en documentatie-stijlen -->
   <link rel="stylesheet" href="theme.css">
   <link rel="stylesheet" href="doc.css">
-  <!-- marked.js: kleine library om Markdown naar HTML te converteren -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script defer>
-    (function() {
-      // Suggestie: IIFE om globale scope te vermijden
+    // Dark mode toggle
+    function toggleDarkMode() {
       const root = document.documentElement;
-      const menuBtn = document.getElementById('menu-toggle');
-      const navLinks = document.querySelector('.nav-links');
-      const langSelect = document.getElementById('lang-select');
-      const loader = document.getElementById('loader');
-      const content = document.getElementById('doc-content');
-
-      /**
-       * Wisselt tussen dark en light mode.
-       */
-      function toggleDarkMode() {
-        root.classList.toggle('dark');
-        localStorage.setItem('hauswerk-theme', root.classList.contains('dark') ? 'dark' : 'light');
+      const mode = root.classList.toggle('dark') ? 'dark' : 'light';
+      localStorage.setItem('hauswerk-theme', mode);
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      if (localStorage.getItem('hauswerk-theme') === 'dark') {
+        document.documentElement.classList.add('dark');
       }
-
-      /**
-       * Laadt de Markdown-documentatie voor de opgegeven taal.
-       */
-      async function loadDoc(lang) {
-        loader.style.display = 'block';
-        const file = lang === 'NL' ? 'README.md' : `README_${lang}.md`;
-        try {
-          const res = await fetch(file);
-          if (!res.ok) throw new Error(`Status ${res.status}`); // Suggestie: expliciete error voor non-200
-          const md = await res.text();
-          content.innerHTML = marked(md);
-        } catch (e) {
-          console.error('Documentatie laden mislukt:', e);
-          content.innerHTML = '<p>Documentatie kon niet geladen worden.</p>';
-        } finally {
-          loader.style.display = 'none';
-        }
-      }
-
-      document.addEventListener('DOMContentLoaded', () => {
-        // Suggestie: cache thema- en taalinstellingen vooraf voor performance
-        const savedTheme = localStorage.getItem('hauswerk-theme');
-        if (savedTheme === 'dark') root.classList.add('dark');
-
-        menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
-
-        const savedLang = localStorage.getItem('doc-lang') || 'NL';
-        langSelect.value = savedLang;
-        loadDoc(savedLang);
-
-        langSelect.addEventListener('change', e => {
-          const lang = e.target.value;
-          localStorage.setItem('doc-lang', lang);
-          loadDoc(lang);
-        });
+      document.getElementById('menu-toggle').addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.toggle('show');
       });
-
-      // Exposeer alleen wat nodig is
-      window.toggleDarkMode = toggleDarkMode;
-    })();
+    });
   </script>
   <style>
-    /* Loader: verborgen totdat loadDoc() wordt aangeroepen */
-    #loader { display: none; margin: 1rem 0; font-style: italic; }
+    /* Inhoudsopgave styling */
+    .toc { margin: 1rem 0; padding: 1rem; background: var(--background-alt); border-radius: 8px; }
+    .toc ul { list-style: none; padding-left: 0; }
+    .toc li { margin: 0.5rem 0; }
   </style>
 </head>
 <body>
@@ -81,8 +37,8 @@
       <a href="index.html">Home</a>
       <a href="plugin_browser.html">Browser</a>
       <a href="viewer.html">Viewer</a>
-      <a href="doc.html">Docs</a>
-      <button onclick="toggleDarkMode()" aria-label="Schakel donker modus">🌓</button>
+      <a href="doc.html" aria-current="page">Docs</a>
+      <button onclick="toggleDarkMode()" aria-label="Schakel donkere modus">🌓</button>
     </div>
   </nav>
 
@@ -90,18 +46,104 @@
     <main>
       <header>
         <h1>🪝 Documentatie</h1>
-        <label for="lang-select">🌐 Taal:</label>
-        <select id="lang-select">
-          <option value="NL">Nederlands</option>
-          <option value="EN">English</option>
-          <option value="DE">Deutsch</option>
-          <option value="FR">Français</option>
-          <option value="ZH">中文</option>
-        </select>
+        <p>Complete gids voor Hauswerk-plugins: structuur, gebruik, API-referentie en meer.</p>
       </header>
 
-      <div id="loader">Bezig met laden…</div>
-      <article id="doc-content"></article>
+      <!-- Inhoudsopgave -->
+      <nav class="toc">
+        <strong>Inhoudsopgave</strong>
+        <ul>
+          <li><a href="#intro">Introductie</a></li>
+          <li><a href="#supabase">Wat bevat Supabase?</a></li>
+          <li><a href="#zip">ZIP Structuur</a></li>
+          <li><a href="#quickstart">Quick Start</a></li>
+          <li><a href="#api">API Referentie</a></li>
+          <li><a href="#troubleshoot">Troubleshooting</a></li>
+          <li><a href="#contribute">Contributie</a></li>
+          <li><a href="#license">Licentie & Support</a></li>
+        </ul>
+      </nav>
+
+      <section id="intro">
+        <h2>Introductie</h2>
+        <p>Welkom in de officiële documentatie voor <strong>Hauswerk Plugins</strong>. Hier leer je hoe je plugins ontwikkelt, uploadt, en integreert met de Hauswerk GUI.</p>
+      </section>
+
+      <section id="supabase">
+        <h2>📦 Wat bevat Supabase?</h2>
+        <ul>
+          <li>Één <code>.py</code>-bestand met een <code>QWidget</code>-subklasse</li>
+          <li><code>plugin.json</code> met metadata (entry, class, tags, etc.)</li>
+          <li>Optioneel: <code>.svg</code>-icoon en <code>preview.png</code></li>
+          <li>SHA256-checksum en automatische validatie</li>
+          <li>Downloadbaar <code>.hauswerk-plugin.zip</code></li>
+        </ul>
+      </section>
+
+      <section id="zip">
+        <h2>🔍 ZIP Structuur</h2>
+        <pre><code>{
+  "name": "Collage",
+  "entry": "collage.py",
+  "class": "CollageWidget",
+  "tags": ["video", "overlay"],
+  "verified": true,
+  "slug": "collage",
+  "icon": "collage.svg",
+  "preview": "collage.png",
+  "download_url": "https://.../collage.hauswerk-plugin.zip"
+}</code></pre>
+      </section>
+
+      <section id="quickstart">
+        <h2>🚀 Quick Start</h2>
+        <p>Volg deze stappen om snel een plugin te installeren:</p>
+        <ol>
+          <li>Open Hauswerk en ga naar de Plugin Store.</li>
+          <li>Zoek naar <strong>Collage</strong> en klik op <em>Installeren</em>.</li>
+          <li>Herstart de applicatie; de plugin verschijnt in je menu.</li>
+        </ol>
+        <p>Voor ontwikkeling gebruik je:</p>
+        <pre><code>hauswerk plugin new --name MijnPlugin</code></pre>
+      </section>
+
+      <section id="api">
+        <h2>🛠️ API Referentie</h2>
+        <h3>upload_plugin_to_supabase.py</h3>
+        <p>CLI-tool voor upload:</p>
+        <pre><code>usage: upload_plugin_to_supabase.py --bucket BUCKET --file ZIPFILE</code></pre>
+        <p><strong>Parameters:</strong></p>
+        <ul>
+          <li><code>--bucket</code>: naam van de Supabase-bucket</li>
+          <li><code>--file</code>: pad naar de plugin ZIP</li>
+        </ul>
+
+        <h3>plugin_browser.js</h3>
+        <p>Belangrijke functies:</p>
+        <ul>
+          <li><code>fetchPlugins()</code>: haalt lijst op via <code>/rest/v1/plugins</code></li>
+          <li><code>renderPlugin(item)</code>: maakt DOM-elementen voor elke plugin</li>
+        </ul>
+      </section>
+
+      <section id="troubleshoot">
+        <h2>⚠️ Troubleshooting</h2>
+        <p><strong>Checksum mismatch:</strong> controleer of de ZIP niet beschadigd is.</p>
+        <p><strong>Network errors:</strong> zorg voor internettoegang en correcte CORS-configuratie.</p>
+      </section>
+
+      <section id="contribute">
+        <h2>🤝 Contributie</h2>
+        <p>Wil je bijdragen? Fork de repo en maak een pull request volgens onze <code>CONTRIBUTING.md</code>.</p>
+        <p>Gebruik issue-templates voor bugs en feature requests.</p>
+      </section>
+
+      <section id="license">
+        <h2>📜 Licentie & Support</h2>
+        <p>Dit project valt onder de MIT-licentie. Zie <code>LICENSE</code> voor details.</p>
+        <p>Voor hulp en vragen, bezoek <a href="https://github.com/michligtenberg2/Hauswerk">GitHub</a> of stuur een e-mail naar support@hauswerk.app.</p>
+      </section>
+
     </main>
   </div>
 
