@@ -56,7 +56,7 @@ Er zijn twee manieren om plugins aan te leveren voor Hauswerk:
 
 ```
 ╔════════════════════════════════════════════════════╗
-║           📂 Pluginstructuur en beoordeling         ║
+║           📂 Pluginstructuur en beoordeling       ║
 ╠══════════════╦═════════════════════════════════════╣
 ║ /unofficial/ ║ Open voor iedereen (geen keuring)   ║
 ║ /official/   ║ Alleen via pull request en review   ║
