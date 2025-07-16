@@ -4,26 +4,74 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hauswerk Documentatie</title>
-  <!-- Externe CSS -->
+  <!-- Externe CSS-bestanden voor thema en documentatie-stijlen -->
   <link rel="stylesheet" href="theme.css">
   <link rel="stylesheet" href="doc.css">
+  <!-- marked.js: kleine library om Markdown naar HTML te converteren -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script defer>
-    const root = document.documentElement;
-    const menuBtn = document.getElementById('menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    (function() {
+      // Suggestie: IIFE om globale scope te vermijden
+      const root = document.documentElement;
+      const menuBtn = document.getElementById('menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      const langSelect = document.getElementById('lang-select');
+      const loader = document.getElementById('loader');
+      const content = document.getElementById('doc-content');
 
-    function toggleDarkMode() {
-      root.classList.toggle('dark');
-      localStorage.setItem('hauswerk-theme', root.classList.contains('dark') ? 'dark' : 'light');
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      if (localStorage.getItem('hauswerk-theme') === 'dark') {
-        root.classList.add('dark');
+      /**
+       * Wisselt tussen dark en light mode.
+       */
+      function toggleDarkMode() {
+        root.classList.toggle('dark');
+        localStorage.setItem('hauswerk-theme', root.classList.contains('dark') ? 'dark' : 'light');
       }
-      menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
-    });
+
+      /**
+       * Laadt de Markdown-documentatie voor de opgegeven taal.
+       */
+      async function loadDoc(lang) {
+        loader.style.display = 'block';
+        const file = lang === 'NL' ? 'README.md' : `README_${lang}.md`;
+        try {
+          const res = await fetch(file);
+          if (!res.ok) throw new Error(`Status ${res.status}`); // Suggestie: expliciete error voor non-200
+          const md = await res.text();
+          content.innerHTML = marked(md);
+        } catch (e) {
+          console.error('Documentatie laden mislukt:', e);
+          content.innerHTML = '<p>Documentatie kon niet geladen worden.</p>';
+        } finally {
+          loader.style.display = 'none';
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        // Suggestie: cache thema- en taalinstellingen vooraf voor performance
+        const savedTheme = localStorage.getItem('hauswerk-theme');
+        if (savedTheme === 'dark') root.classList.add('dark');
+
+        menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
+
+        const savedLang = localStorage.getItem('doc-lang') || 'NL';
+        langSelect.value = savedLang;
+        loadDoc(savedLang);
+
+        langSelect.addEventListener('change', e => {
+          const lang = e.target.value;
+          localStorage.setItem('doc-lang', lang);
+          loadDoc(lang);
+        });
+      });
+
+      // Exposeer alleen wat nodig is
+      window.toggleDarkMode = toggleDarkMode;
+    })();
   </script>
+  <style>
+    /* Loader: verborgen totdat loadDoc() wordt aangeroepen */
+    #loader { display: none; margin: 1rem 0; font-style: italic; }
+  </style>
 </head>
 <body>
   <nav class="navbar">
@@ -42,119 +90,18 @@
     <main>
       <header>
         <h1>🪝 Documentatie</h1>
-        <p>🌐 Beschikbare talen:
-          <a href="README.md">Nederlands</a> |
-          <a href="README_EN.md">English</a> |
-          <a href="README_DE.md">Deutsch</a> |
-          <a href="README_FR.md">Français</a> |
-          <a href="README_ZH.md">中文</a>
-        </p>
+        <label for="lang-select">🌐 Taal:</label>
+        <select id="lang-select">
+          <option value="NL">Nederlands</option>
+          <option value="EN">English</option>
+          <option value="DE">Deutsch</option>
+          <option value="FR">Français</option>
+          <option value="ZH">中文</option>
+        </select>
       </header>
 
-      <table>
-        <caption>Overzicht van beschikbare plugins</caption>
-        <thead>
-          <tr><th>Plugin</th><th>Count</th><th>Source</th><th>License</th></tr>
-        </thead>
-        <tbody>
-          <!-- Dynamisch geladen via Supabase -->
-        </tbody>
-      </table>
-
-      <section>
-        <p>Welkom in de documentatie van <strong>Hauswerk Plugins</strong>. Deze pagina legt uit hoe de Supabase-pluginstructuur werkt, hoe je zelf plugins maakt, uploadt en zichtbaar maakt in de Plugin Browser van Hauswerk. Of je nu een ontwikkelaar bent of een enthousiaste gebruiker, hier vind je alle info om mee te bouwen aan een modulair ecosysteem.</p>
-
-        <p>Alle plugins worden dynamisch geladen vanuit Supabase. Wijzigingen, nieuwe uploads en updates zijn direct beschikbaar in de Plugin Store-tab binnen de Hauswerk-app, zonder handmatig bijwerken.</p>
-
-        <h2>📦 Wat bevat Supabase?</h2>
-        <ul>
-          <li>✅ Één <code>.py</code> bestand met een <code>QWidget</code> subclass</li>
-          <li>✅ Een <code>plugin.json</code> bestand met metadata (entry, class, tags, etc.)</li>
-          <li>✅ Een <code>.svg</code> icoon (optioneel)</li>
-          <li>✅ <code>preview.png</code> voor visuele weergave (optioneel)</li>
-          <li>✅ SHA256 checksum + automatische validatie</li>
-          <li>✅ Downloadbare <code>.hauswerk-plugin.zip</code></li>
-        </ul>
-
-        <h3>ZIP Structuur</h3>
-        <pre><code>{
-  "name": "Collage",
-  "entry": "collage.py",
-  "class": "CollageWidget",
-  "tags": ["video", "overlay"],
-  "verified": true,
-  "slug": "collage",
-  "icon": "collage.svg",
-  "preview": "collage.png",
-  "download_url": "https://.../collage.hauswerk-plugin.zip"
-}</code></pre>
-
-        <h2>🚀 Hoe gebruik ik Supabase plugins?</h2>
-        <p>De Hauswerk GUI haalt live de pluginlijst op via de Supabase REST API. Open de Plugin Store in de applicatie — alles wordt automatisch geladen.</p>
-        <p><code>plugin_browser.js</code> regelt ophalen, weergeven en downloaden van plugins in de GUI, met een offline cache-optie.</p>
-
-        <h2>🧪 Bijdragen aan Supabase Store</h2>
-        <h3>Uploadstructuur</h3>
-        <ul>
-          <li>🔐 Upload naar <em>official</em> (via review)</li>
-          <li>Kompleet werkende plugin</li>
-          <li>Validatie door maintainer</li>
-          <li>Metadata + preview vereist</li>
-        </ul>
-        <p>Wordt gemarkeerd als <code>verified: true</code> en verschijnt bovenaan in zoekresultaten.</p>
-
-        <h3>Zelf uploaden via Python</h3>
-        <pre><code>python upload_plugin_to_supabase.py \
-  --bucket hauswerk.unofficial \
-  --file mijnplugin.hauswerk-plugin.zip</code></pre>
-        <ul>
-          <li>Valideert <code>plugin.json</code> inhoud</li>
-          <li>Genereert automatisch slug, SHA256 en metadata</li>
-          <li>Voegt <code>preview.png</code> toe als aanwezig</li>
-          <li>Uploadt veilig naar Supabase Storage</li>
-        </ul>
-
-        <h3>Eigen store opzetten?</h3>
-        <p>In de GUI kun je alternatieve bronnen toevoegen, zoals je eigen Supabase project of een JSON endpoint. Zolang het JSON-formaat gelijk blijft, werkt het direct.</p>
-
-        <h2>🧰 Plugin ZIP Structuur</h2>
-        <pre><code>📦 mijnplugin.hauswerk-plugin.zip
-├── plugin.json
-├── mijnplugin.py
-├── preview.png      # optioneel
-└── icoon.svg        # optioneel</code></pre>
-        <p>Voorbeeld <code>plugin.json</code>:</p>
-        <pre><code>{
-  "name": "Mijn Plugin",
-  "entry": "mijnplugin.py",
-  "class": "MijnPluginWidget",
-  "tags": ["audio", "fx"],
-  "verified": false
-}</code></pre>
-
-        <h2>🛡️ Automatische validatie</h2>
-        <ul>
-          <li>Controle op verplichte velden</li>
-          <li>Controle of <code>.py</code>-bestand en class overeenkomen met metadata</li>
-          <li>Bestaat de preview/icoon daadwerkelijk?</li>
-          <li>ZIP-structuur compleet en correct</li>
-        </ul>
-
-        <h2>📡 Supabase Plugin Browser in GUI</h2>
-        <p>Hauswerk maakt live een JSON-API request naar:</p>
-        <pre><code>fetch("https://izlcnpelomuuwxijnnuh.supabase.co/rest/v1/plugins")</code></pre>
-        <p>Elke plugin wordt weergegeven met titel, tags, preview en downloadknop. Er zijn filter- en validatie-opties voor officiële en unofficial plugins.</p>
-
-        <h2>🤝 Contributie</h2>
-        <ul>
-          <li>Draag een officiële plugin aan via GitHub of direct contact.</li>
-          <li>Upload naar <code>hauswerk.unofficial</code> voor laagdrempelig bijdragen.</li>
-        </ul>
-
-        <h2>📫 Contact / Hulp</h2>
-        <p>Open een issue op <a href="https://github.com/michligtenberg2/Hauswerk" target="_blank" rel="noopener">GitHub</a> of gebruik de uploader in de app.</p>
-      </section>
-
+      <div id="loader">Bezig met laden…</div>
+      <article id="doc-content"></article>
     </main>
   </div>
 
