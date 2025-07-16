@@ -63,46 +63,42 @@
           <li><a href="#license">Licentie & Support</a></li>
         </ul>
       </nav>
+<section id="intro">
+  <h2>📘 Introductie</h2>
 
-      <section id="intro">
-        <h2>Introductie</h2>
-      Hauswerk is een open-source GUI-applicatie, gebouwd met Python (PyQt6), waarmee je op modulaire wijze video- en audiobewerkingen kunt uitvoeren via plugins. Zie het als een digitale gereedschapskist: de hoofdinterface bestaat uit verschillende tabbladen, elk met een specifieke tool.
+  <p><strong>Hauswerk</strong> is een open-source GUI-applicatie, gebouwd met Python (PyQt6), waarmee je op modulaire wijze video- en audiobewerkingen kunt uitvoeren via plugins. Zie het als een digitale gereedschapskist: de hoofdinterface bestaat uit verschillende tabbladen, elk met een specifieke tool.</p>
 
-De applicatie biedt standaard een aantal ingebouwde plugins aan, maar gebruikers kunnen ook zelf plugins toevoegen of community-plugins installeren via de ingebouwde plugin-browser. Er is daarnaast een Dashboard-tabblad voor overzicht, en een Plugin Store-tabblad om nieuwe tools te ontdekken en te installeren.
-🧩 Flexibiliteit als kernidee
+  <p>De applicatie biedt standaard een aantal ingebouwde plugins aan, maar gebruikers kunnen ook zelf plugins toevoegen of community-plugins installeren via de ingebouwde plugin-browser. Er is daarnaast een Dashboard-tabblad voor overzicht en een Plugin Store-tabblad om nieuwe tools te ontdekken en te installeren.</p>
 
-Het kernidee van Hauswerk is uitbreidbaarheid: elke nieuwe functie wordt toegevoegd in de vorm van een plugin.
+  <h3>🧩 Flexibiliteit als kernidee</h3>
+  <p>Het kernidee van Hauswerk is <strong>uitbreidbaarheid</strong>: elke nieuwe functie wordt toegevoegd in de vorm van een plugin.</p>
 
-Een plugin is simpelweg een Python-module met een Qt-widget (QWidget) die zijn eigen gebruikersinterface bevat. Hauswerk detecteert en laadt deze widgets dynamisch, waarna ze geïntegreerd worden in de interface — bijvoorbeeld als een nieuw tabblad.
+  <p>Een plugin is simpelweg een Python-module met een Qt-widget (<code>QWidget</code>) die zijn eigen gebruikersinterface bevat. Hauswerk detecteert en laadt deze widgets dynamisch, waarna ze geïntegreerd worden in de interface – bijvoorbeeld als een nieuw tabblad.</p>
 
-Gebruikers kunnen hun eigen plugins ontwikkelen, plugins delen, of bestaande tools aanpassen aan hun behoeften.
-🔧 Wat Hauswerk intern aanbiedt
+  <p>Gebruikers kunnen hun eigen plugins ontwikkelen, plugins delen of bestaande tools aanpassen aan hun behoeften.</p>
 
-Plugins in Hauswerk kunnen gebruikmaken van verschillende centrale voorzieningen:
+  <h3>🔧 Wat Hauswerk intern aanbiedt</h3>
+  <p>Plugins in Hauswerk kunnen gebruikmaken van verschillende centrale voorzieningen:</p>
+  <ul>
+    <li><strong>SettingsManager</strong> – voor het lezen en schrijven van instellingen in een centraal JSON-bestand (<code>~/.hauswerk_settings.json</code>).</li>
+    <li><strong>Style Manager</strong> – voor het toepassen van licht/donker thema’s en consistente styling.</li>
+    <li><strong>Preset-systeem</strong> – voor het opslaan en laden van plugin-specifieke instellingen in JSON-formaat.</li>
+    <li><strong>FFmpegWorker & ThumbnailWorker</strong> – voor het uitvoeren van zware taken in achtergrondthreads (zoals videoprocessing of thumbnailgeneratie), zonder dat de GUI blokkeert.</li>
+  </ul>
 
-    SettingsManager
-    Voor het lezen en schrijven van instellingen in een centraal JSON-bestand (~/.hauswerk_settings.json)
+  <h3>📚 Wat leer je in deze gids?</h3>
+  <p>Je leert:</p>
+  <ul>
+    <li>hoe je Hauswerk-plugins bouwt</li>
+    <li>hoe je ze integreert in de GUI</li>
+    <li>hoe je presets, thema’s en workers inzet</li>
+    <li>hoe je een ZIP maakt met correcte structuur en metadata</li>
+    <li>hoe je uploadt naar de Plugin Store</li>
+    <li>hoe je errors en edge cases afvangt</li>
+  </ul>
 
-    Style Manager
-    Voor het toepassen van licht/donker thema’s en consistente styling
-
-    Preset-systeem
-    Voor het opslaan en laden van plugin-specifieke instellingen in JSON-formaat
-
-    FFmpegWorker & ThumbnailWorker
-    Voor het uitvoeren van zware taken in achtergrondthreads (zoals videoprocessing of thumbnailgeneratie), zonder dat de GUI blokkeert
-
-📚 Wat leer je in deze gids?
-
-Je leert:
-    -hoe je Hauswerk-plugins bouwt
-    -hoe je ze integreert in de GUI
-    -hoe je presets, thema’s en workers inzet
-    -hoe je een ZIP maakt met correcte structuur en metadata
-    -hoe je uploadt naar de Plugin Store
-    -en hoe je errors en edge cases afvangt
-Deze documentatie is geschikt voor gebruikers én ontwikkelaars die Hauswerk willen uitbreiden of beter begrijpen.
-      </section>
+  <p>Deze documentatie is geschikt voor <strong>gebruikers én ontwikkelaars</strong> die Hauswerk willen uitbreiden of beter begrijpen.</p>
+</section>
 
       <section id="supabase">
         <h2>📦 Wat bevat Supabase?</h2>
