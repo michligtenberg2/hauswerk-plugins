@@ -1,23 +1,26 @@
 /* theme.css - Hauswerk App Store Style met dark mode & mobile navbar + button fade */
 
 :root {
-  --background: #f9f9fb;
-  --foreground: #111;
-  --accent: #666;
-  --accent-hover: #000;
-  --border: #e0e0e0;
-  --link: #007aff;
-  --link-hover: #005ecb;
+  --background: #f2f2f7;
+  --foreground: #1c1c1e;
+  --accent: #0071e3;
+  --accent-hover: #005bb5;
+  --border: #d1d1d6;
+  --link: var(--accent);
+  --link-hover: var(--accent-hover);
+  --radius: 8px;
+  --shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  font-family: -apple-system, Helvetica, sans-serif;
 }
 
 html.dark {
-  --background: #111;
-  --foreground: #f9f9fb;
-  --accent: #e67e22;
-  --accent-hover: #d35400;
-  --border: #333;
-  --link: #ffa14a;
-  --link-hover: #ffbd80;
+  --background: #1c1c1e;
+  --foreground: #f2f2f7;
+  --accent: #0a84ff;
+  --accent-hover: #3391ff;
+  --border: #3a3a3c;
+  --link: var(--accent);
+  --link-hover: var(--accent-hover);
 }
 
 body {
@@ -36,16 +39,16 @@ body {
 }
 
 main {
-  background: #fff;
+  background: var(--background);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: var(--radius);
   padding: 2rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+  box-shadow: var(--shadow);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 html.dark main {
-  background: #1c1c1c;
+  background: var(--background);
   box-shadow: none;
 }
 
@@ -57,7 +60,7 @@ h1, h2 {
   background: var(--accent);
   color: #fff;
   padding: 0.6rem 1.2rem;
-  border-radius: 10px;
+  border-radius: var(--radius);
   font-weight: 500;
   text-decoration: none;
   border: none;
@@ -92,7 +95,7 @@ ul li {
 
 /* Navbar */
 .navbar {
-  background: #fff;
+  background: var(--background);
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
@@ -106,8 +109,8 @@ ul li {
 }
 
 html.dark .navbar {
-  background: #1c1c1c;
-  border-bottom: 1px solid #333;
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
   box-shadow: none;
 }
 
@@ -185,12 +188,17 @@ html.dark footer {
 /* Cards voor plugins en themes */
 .plugin-card {
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: var(--radius);
   padding: 1rem;
   background: #fff;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  box-shadow: var(--shadow);
   margin-bottom: 1.5rem;
   transition: transform 0.2s ease;
+}
+
+html.dark .plugin-card {
+  background: #2c2c2e;
+  box-shadow: none;
 }
 
 .plugin-card:hover {
@@ -198,7 +206,7 @@ html.dark footer {
 }
 
 .plugin-card img {
-  border-radius: 12px;
+  border-radius: var(--radius);
   margin-bottom: 0.5rem;
 }
 
@@ -207,7 +215,7 @@ html.dark footer {
   background: var(--border);
   padding: 0.2rem 0.6rem;
   margin: 0 0.25rem 0.25rem 0;
-  border-radius: 8px;
+  border-radius: var(--radius);
   cursor: pointer;
 }
 
