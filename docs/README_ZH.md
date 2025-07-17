@@ -1,6 +1,6 @@
 **🌐 支持语言:** [Nederlands](../README.md) | [English](README_EN.md) | [Deutsch](README_DE.md) | [Français](README_FR.md) | [中文](README_ZH.md)
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="theme.css">
 
 # 🧹 Hauswerk 插件（中文）
 

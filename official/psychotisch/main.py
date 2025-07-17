@@ -1,4 +1,4 @@
-# widgets/psychotisch_tab.py
+"""Psychotisch video mashup plugin for Hauswerk."""
 
 import os
 import random
@@ -193,3 +193,9 @@ class PsychotischTab(QWidget):
             except: pass
         try: os.remove(concatlist)
         except: pass
+
+# Alias for Hauswerk loader
+class PluginWidget(PsychotischTab):
+    """Entry point for Hauswerk."""
+    pass
+

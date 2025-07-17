@@ -3,7 +3,7 @@ title: Hauswerk Plugin Store
 layout: default
 ---
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="theme.css">
 
 # 🧰 Hauswerk Plugin Store
 

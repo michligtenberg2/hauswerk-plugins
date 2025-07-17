@@ -121,6 +121,19 @@ zip -r jouwplugin.zip jouwplugin/
 4. Klaar! De plugin wordt automatisch zichtbaar in `unofficial/plugins.json`
 5. Wil je officiële opname? Dien dan een PR in naar `/official/`
 
+### Structuur van een plugin
+Een minimale plugin bevat de volgende bestanden:
+
+```
+myplugin/
+├─ main.py        # bevat class PluginWidget(QWidget)
+├─ metadata.json  # naam, slug, versie, beschrijving, auteur
+├─ icon.png       # optioneel pictogram
+└─ preview.jpg    # optionele screenshot
+```
+
+`metadata.json` wordt gebruikt door de Plugin Store om details en tags te tonen.
+
 ---
 
 ## 🧹 plugin.json format
