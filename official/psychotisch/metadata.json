@@ -1,8 +1,12 @@
 {
   "name": "Psychotisch",
-  "entry": "psychotisch.py",
-  "class": "PsychotischWidget",
+  "slug": "psychotisch",
+  "version": "1.0",
+  "description": "Chaotic multi-layer video generator.",
+  "author": "Unknown",
+  "entry": "main.py",
+  "class": "PluginWidget",
   "icon": "psychotisch.svg",
-  "tags": [],
+  "tags": ["video", "effect"],
   "verified": true
-}
+} 

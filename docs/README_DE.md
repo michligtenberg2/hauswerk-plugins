@@ -1,6 +1,6 @@
 **🌐 Verfügbare Sprachen:** [Nederlands](../README.md) | [English](README_EN.md) | [Deutsch](README_DE.md) | [Français](README_FR.md) | [中文](README_ZH.md)
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="theme.css">
 
 # 🧹 Hauswerk Plugins (Deutsch)
 
