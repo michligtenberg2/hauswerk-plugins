@@ -12,16 +12,13 @@
 </head>
 <body>
   <nav class="navbar">
-    <div class="nav-brand">Hauswerk</div>
-    <button id="menu-toggle" class="mobile-toggle">☰</button>
     <div class="nav-links">
       <a href="index.html">Home</a>
-      <a href="plugin_browser.html" class="active">Plugins</a>
-      <a href="theme_browser.html">Themes</a>
-      <a href="upload.html">Upload</a>
+      <a href="plugin_browser.html" class="active">Plugin Store</a>
+      <a href="theme_browser.html">Theme Shop</a>
       <a href="doc.html">Docs</a>
-      <button onclick="toggleDarkMode()">🌓</button>
     </div>
+    <button id="dark-toggle">🌓</button>
   </nav>
 
   <div class="container">
@@ -38,7 +35,6 @@
 
       <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-bottom: 1rem;">
         <button id="about-toggle" class="button">ℹ️ Info</button>
-        <button id="dark-toggle" class="button" onclick="toggleDarkMode()">🌓 Wissel thema</button>
         <label for="sort-select">🔽 Sorteer op:</label>
         <select id="sort-select">
           <option value="name">🔤 Naam (A–Z)</option>

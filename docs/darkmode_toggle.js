@@ -1,11 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const body = document.body;
+  const root = document.documentElement;
   const toggle = document.getElementById("dark-toggle");
   const theme = localStorage.getItem("theme") || "light";
-  if (theme === "dark") body.classList.add("dark");
+  if (theme === "dark") root.classList.add("dark");
 
-  toggle.addEventListener("click", () => {
-    body.classList.toggle("dark");
-    localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
-  });
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      root.classList.toggle("dark");
+      localStorage.setItem("theme", root.classList.contains("dark") ? "dark" : "light");
+    });
+  }
 });
+
