@@ -7,7 +7,7 @@
 
 Welkom bij de **Hauswerk Plugins** repository — de officiële opslagplek voor uitbreidbare tools binnen de [Hauswerk](https://github.com/michligtenberg2/Hauswerk) GUI.
 
-Deze repository bevat kant-en-klare plugins als `.zip` bestanden, samen met een centrale `plugins.json` die automatisch gebruikt wordt door de Plugin Store-tab binnen de Hauswerk-app.
+Deze repository bevat kant-en-klare plugins als `.zip` bestanden. De bestanden `plugins.json` en `themes.json` voeden de Plugin Store en Theme Shop binnen de Hauswerk-app.
 
 ---
 
@@ -22,6 +22,8 @@ Deze repository bevat kant-en-klare plugins als `.zip` bestanden, samen met een 
 | Psychotisch     | Creeër gekke EBM-style montage           | `psychotisch.zip` |
 | AudioFadeBPM    | Batch audio extractie + crossfade        | `audiofadebpm.zip` |
 | UIBuilder       | Visuele UI-pluginbouwer                  | `uibuilder.zip` |
+
+Naast plugins vind je in deze repo ook thema's voor de Hauswerk-interface. Deze zijn te bekijken in de [Theme Shop](docs/theme_browser.html).
 
 Alle plugins bevatten minimaal:
 - Één `.py` bestand met een `QWidget` subclass
