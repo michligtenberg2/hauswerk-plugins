@@ -18,5 +18,35 @@
     "tags": ["light", "elegant"],
     "preview": "https://via.placeholder.com/600x400?text=Light+Elegant",
     "zip_url": "https://example.com/themes/light-elegant.zip"
+  },
+  {
+    "slug": "retro-vibe",
+    "name": "Retro Vibe",
+    "description": "Klassiek retro thema",
+    "version": "1.0",
+    "author": "Community",
+    "tags": ["retro", "nostalgic"],
+    "preview": "https://via.placeholder.com/600x400?text=Retro+Vibe",
+    "zip_url": "https://example.com/themes/retro-vibe.zip"
+  },
+  {
+    "slug": "pastel-dream",
+    "name": "Pastel Dream",
+    "description": "Zacht pastel kleurenthema",
+    "version": "1.0",
+    "author": "Hauswerk Team",
+    "tags": ["pastel", "light"],
+    "preview": "https://via.placeholder.com/600x400?text=Pastel+Dream",
+    "zip_url": "https://example.com/themes/pastel-dream.zip"
+  },
+  {
+    "slug": "monochrome-classic",
+    "name": "Monochrome Classic",
+    "description": "Stijlvol zwart-wit thema",
+    "version": "1.0",
+    "author": "Community",
+    "tags": ["monochrome", "classic"],
+    "preview": "https://via.placeholder.com/600x400?text=Monochrome+Classic",
+    "zip_url": "https://example.com/themes/monochrome-classic.zip"
   }
 ]
