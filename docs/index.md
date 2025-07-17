@@ -19,6 +19,14 @@ Welkom bij de officiële plugin-index voor de **Hauswerk** applicatie.
 🔍 Open Plugin Browser
 </a>
 
+## 🎨 Themes
+
+Ontdek nieuwe thema's in de Theme Shop:
+
+<a href="theme_browser.html" class="button" style="font-size:1.1rem; padding: 1rem; display: inline-block; border: 2px solid black; background: #000; color: #fff; margin-bottom: 1rem;">
+🛍️ Open Theme Shop
+</a>
+
 > ⚠️ Deze browser bevat **officiële** én **community plugins**. Je kunt filteren op tags, validatie, naam of functie.
 
 ---

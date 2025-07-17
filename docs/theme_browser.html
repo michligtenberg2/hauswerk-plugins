@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hauswerk Theme Shop</title>
+  <link rel="stylesheet" href="theme.css">
+  <script defer src="darkmode_toggle.js"></script>
+  <script defer src="theme_data.js"></script>
+  <script defer src="theme_browser.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">Hauswerk</div>
+    <button id="menu-toggle" class="mobile-toggle">☰</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="plugin_browser.html">Plugins</a>
+      <a href="theme_browser.html" class="active">Themes</a>
+      <a href="upload.html">Upload</a>
+      <a href="doc.html">Docs</a>
+      <button id="dark-toggle" class="button" onclick="toggleDarkMode()">🌓</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <main>
+      <div style="display:flex;gap:1rem;align-items:center;margin-bottom:1rem;flex-wrap:wrap;">
+        <input type="text" id="searchInput" placeholder="Zoek themes..." class="search-input">
+      </div>
+      <div class="filters" id="tagFilters" style="margin-bottom:1rem;"></div>
+      <div id="pluginContainer"></div>
+
+      <div id="previewOverlay" class="preview-overlay" style="display:none">
+        <img id="previewImage" src="">
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Hauswerk. Gemaakt met liefde voor themes.</p>
+    </div>
+  </footer>
+</body>
+</html>

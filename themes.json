@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "dark-minimal",
+    "name": "Dark Minimal",
+    "description": "Donker minimalistisch thema",
+    "version": "1.0",
+    "author": "Hauswerk Team",
+    "tags": ["dark", "minimal"],
+    "preview": "https://via.placeholder.com/600x400?text=Dark+Minimal",
+    "zip_url": "https://example.com/themes/dark-minimal.zip"
+  },
+  {
+    "slug": "light-elegant",
+    "name": "Light Elegant",
+    "description": "Licht en elegant thema",
+    "version": "1.0",
+    "author": "Community",
+    "tags": ["light", "elegant"],
+    "preview": "https://via.placeholder.com/600x400?text=Light+Elegant",
+    "zip_url": "https://example.com/themes/light-elegant.zip"
+  }
+]
