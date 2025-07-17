@@ -27,7 +27,7 @@ Alle plugins bevatten minimaal:
 - Één `.py` bestand met een `QWidget` subclass
 - Een `plugin.json` bestand met metadata
 - Een `.svg` icoon (optioneel)
-- (optioneel) `preview.png` (wordt getoond in GUI)
+- (optioneel) `preview.jpg` (wordt getoond in GUI)
 - (optioneel) `tags`: lijst met trefwoorden zoals `"video"`, `"audio"`, `"glitch"`
 
 ---
@@ -110,7 +110,7 @@ Zo kunnen er officiële én experimentele stores tegelijk actief zijn in de inte
    - `jouwplugin.py`
    - `plugin.json`
    - (optioneel) `icoon.svg`
-   - (optioneel) `preview.png`
+   - (optioneel) `preview.jpg`
 
 2. Zip de hele pluginmap:
 ```bash
