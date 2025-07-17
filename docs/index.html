@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hauswerk Plugin Store</title>
   <link rel="stylesheet" href="theme.css">
+  <script defer src="darkmode_toggle.js"></script>
   <style>
     html {
       transition: background-color 0.3s ease, color 0.3s ease;
@@ -58,34 +59,8 @@
       font-size: 1.25rem;
     }
   </style>
-  <script defer>
-    function toggleDarkMode() {
-      document.documentElement.classList.toggle('dark');
-      localStorage.setItem('hauswerk-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      if (localStorage.getItem('hauswerk-theme') === 'dark') {
-        document.documentElement.classList.add('dark');
-      }
-      document.getElementById('menu-toggle').addEventListener('click', () => {
-        document.querySelector('.nav-links').classList.toggle('show');
-      });
-    });
-  </script>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-brand">Hauswerk</div>
-    <button id="menu-toggle" class="mobile-toggle">☰</button>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="plugin_browser.html">Browser</a>
-      <a href="viewer.html">Viewer</a>
-      <a href="doc.html">Docs</a>
-      <button onclick="toggleDarkMode()">🌓</button>
-    </div>
-  </nav>
 
   <div class="container">
     <header>

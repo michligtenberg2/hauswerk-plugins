@@ -5,23 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hauswerk Documentatie</title>
   <link rel="stylesheet" href="theme.css">
-  <link rel="stylesheet" href="doc.css">
-  <script defer>
-    // Dark mode toggle
-    function toggleDarkMode() {
-      const root = document.documentElement;
-      const mode = root.classList.toggle('dark') ? 'dark' : 'light';
-      localStorage.setItem('hauswerk-theme', mode);
-    }
-    document.addEventListener('DOMContentLoaded', () => {
-      if (localStorage.getItem('hauswerk-theme') === 'dark') {
-        document.documentElement.classList.add('dark');
-      }
-      document.getElementById('menu-toggle').addEventListener('click', () => {
-        document.querySelector('.nav-links').classList.toggle('show');
-      });
-    });
-  </script>
+  <script defer src="darkmode_toggle.js"></script>
   <style>
     /* Inhoudsopgave styling */
     .toc { margin: 1rem 0; padding: 1rem; background: var(--background-alt); border-radius: 8px; }
@@ -30,17 +14,7 @@
   </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-brand">Hauswerk</div>
-    <button id="menu-toggle" class="mobile-toggle" aria-label="Toon menu">☰</button>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="plugin_browser.html">Browser</a>
-      <a href="viewer.html">Viewer</a>
-      <a href="doc.html" aria-current="page">Docs</a>
-      <button onclick="toggleDarkMode()" aria-label="Schakel donkere modus">🌓</button>
-    </div>
-  </nav>
+  
 
   <div class="container">
     <main>
