@@ -55,7 +55,10 @@ function renderThemes(filter = '') {
       container.appendChild(card);
     }
   });
-  document.getElementById('pluginCount').innerText = `(${count})`;
+  const countEl = document.getElementById('pluginCount');
+  if (countEl) {
+    countEl.innerText = `(${count})`;
+  }
 }
 
 function copyJSON(text) {
