@@ -105,7 +105,10 @@ function renderPlugins(filter = "") {
       container.appendChild(card);
     }
   });
-  document.getElementById("pluginCount").innerText = `(${count})`;
+  const countEl = document.getElementById("pluginCount");
+  if (countEl) {
+    countEl.innerText = `(${count})`;
+  }
 }
 
 // Event listeners
