@@ -84,15 +84,17 @@ function renderPlugins(filter = "") {
       }).join(" ");
       const verified = p.verified ? t("status_verified") : t("status_unverified");
       const jsonStr = JSON.stringify(p, null, 2);
+      const zipUrl = p.zip_url;
+      const previewUrl = p.preview_url || zipUrl.replace(/\.zip$/, `/${p.preview}`);
 
       card.innerHTML = `
         <h2>${p.name} ${tags}</h2>
         <p class="rating">${renderStars(p.rating || 0)}</p>
-        <img src="${p.path}/${p.preview}" alt="preview" style="width: 100%; max-width: 400px; cursor: pointer;" onclick="showPreview('${p.path}/${p.preview}')">
+        <img src="${previewUrl}" alt="preview" style="width: 100%; max-width: 400px; cursor: pointer;" onclick="showPreview('${previewUrl}')">
         <p><strong>Status:</strong> ${verified}</p>
         <p><strong>${t("description")}</strong> ${p.description || ""}</p>
         <p>
-          <a class="button" href="${p.path}/${p.zip}" download>${t("download")}</a>
+          <a class="button" href="${zipUrl}" download>${t("download")}</a>
           <button onclick='copyJSON(`${jsonStr}`)'>${t("copy_json")}</button>
         </p>
         <details>
