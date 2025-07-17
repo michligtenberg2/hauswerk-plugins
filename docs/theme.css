@@ -136,6 +136,11 @@ html.dark .navbar {
 .navbar .nav-links button:hover {
   color: var(--accent);
 }
+.navbar .nav-links a.active {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+}
+
 
 /* Mobile nav */
 .mobile-toggle {
